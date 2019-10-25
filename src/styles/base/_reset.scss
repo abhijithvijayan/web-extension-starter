@@ -1,0 +1,31 @@
+// Manually forked from Normalize.css, Reboot.css, Sanitize.css, and Untouched.css
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: 0;
+}
+
+ol,
+ul {
+  list-style-type: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+a:link {
+  text-decoration: none;
+}
