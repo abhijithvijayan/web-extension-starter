@@ -25,7 +25,10 @@ module.exports = {
         new webpack.ProgressPlugin(),
         new FixStyleOnlyEntriesPlugin({ silent: true }),
         new CleanWebpackPlugin({
-            cleanOnceBeforeBuildPatterns: [path.join(process.cwd(), `extension/${process.env.TARGET}`)],
+            cleanOnceBeforeBuildPatterns: [
+                path.join(process.cwd(), `extension/${process.env.TARGET}`),
+                path.join(process.cwd(), `extension/${process.env.TARGET}.zip`),
+            ],
             cleanStaleWebpackAssets: false,
             verbose: true,
         }),
