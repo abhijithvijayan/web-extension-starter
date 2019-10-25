@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const ZipPlugin = require('zip-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -91,7 +92,14 @@ module.exports = {
         ],
     },
 
-    optimization: {},
+    optimization: {
+        minimizer: [
+            new ZipPlugin({
+                path: path.resolve(__dirname, 'extension'),
+                filename: `${process.env.TARGET}.zip`,
+            }),
+        ],
+    },
 
     devServer: {
         contentBase: path.join(__dirname, 'extension'),
