@@ -1,9 +1,27 @@
 {
   "name": "web-extension-starter",
   "version": "1.0.0",
-  "description": "Web Extension Starter",
+  "description": "Web extension starter",
   "main": "index.js",
   "repository": "https://github.com/abhijithvijayan/web-extension-starter.git",
   "author": "abhijithvijayan <34790378+abhijithvijayan@users.noreply.github.com>",
-  "private": true
+  "private": true,
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "css-loader": "^3.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.9.0"
+  }
 }
