@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const ZipPlugin = require('zip-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -97,6 +98,10 @@ module.exports = {
 
     optimization: {
         minimizer: [
+            new TerserPlugin({
+                cache: true,
+                parallel: true,
+            }),
             new ZipPlugin({
                 path: path.resolve(__dirname, 'extension'),
                 filename: `${process.env.TARGET}.zip`,
