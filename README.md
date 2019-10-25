@@ -1,5 +1,5 @@
 <h1 align="center">🚀 web-extension-starter</h1>
-<p align="center">Web Extension starter to build "Write Once Write on any Browser" extension</p>
+<p align="center">Web Extension starter to build "Write Once Run on Any Browser" extension</p>
 
 ## Features
 
