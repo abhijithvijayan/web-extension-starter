@@ -15,8 +15,8 @@ module.exports = {
     },
 
     output: {
-        filename: '[name].[chunkhash].js',
-        path: path.resolve(__dirname, 'extension'),
+        filename: 'js/[name].[chunkhash].js',
+        path: path.resolve(__dirname, 'extension', process.env.TARGET),
     },
 
     plugins: [
