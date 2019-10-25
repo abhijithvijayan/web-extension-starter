@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
 
 module.exports = {
@@ -20,7 +21,12 @@ module.exports = {
     },
 
     plugins: [
-        new FixStyleOnlyEntriesPlugin(),
+        new FixStyleOnlyEntriesPlugin({ silent: true }),
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: [path.join(process.cwd(), `extension/${process.env.TARGET}`)],
+            cleanStaleWebpackAssets: false,
+            verbose: true,
+        }),
         new CopyWebpackPlugin([
             { from: 'src/assets', to: 'assets' },
             { from: `src/manifests/${process.env.TARGET}.json`, to: 'manifest.json' },
