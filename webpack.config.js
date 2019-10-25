@@ -1,6 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
+
 
 module.exports = {
     mode: 'development',
@@ -17,7 +19,7 @@ module.exports = {
         path: path.resolve(__dirname, 'extension'),
     },
 
-    plugins: [new webpack.ProgressPlugin(), new HtmlWebpackPlugin()],
+    plugins: [new FixStyleOnlyEntriesPlugin(), new webpack.ProgressPlugin(), new HtmlWebpackPlugin()],
 
     module: {
         rules: [
