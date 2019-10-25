@@ -89,6 +89,14 @@ module.exports = {
                             sourceMap: true,
                         },
                     },
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            ident: 'postcss',
+                            // eslint-disable-next-line global-require
+                            plugins: [require('autoprefixer')()],
+                        },
+                    },
                     'resolve-url-loader',
                     'sass-loader',
                 ],
