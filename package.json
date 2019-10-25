@@ -2,10 +2,11 @@
   "name": "web-extension-starter",
   "version": "1.0.0",
   "description": "Web extension starter",
-  "main": "index.js",
+  "private": true,
+  "main": "src/scripts/background.js",
   "repository": "https://github.com/abhijithvijayan/web-extension-starter.git",
   "author": "abhijithvijayan <34790378+abhijithvijayan@users.noreply.github.com>",
-  "private": true,
+  "license": "MIT",
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server"
