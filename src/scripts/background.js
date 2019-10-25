@@ -1,1 +1,1 @@
-console.log("Hello World from background main file!");
+console.log('Hello World from background main file!');
