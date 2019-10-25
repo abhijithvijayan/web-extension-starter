@@ -35,7 +35,20 @@ module.exports = {
         }),
         new CopyWebpackPlugin([
             { from: 'src/assets', to: 'assets' },
-            { from: `src/manifests/${process.env.TARGET}.json`, to: 'manifest.json' },
+            {
+                from: `src/manifests/${process.env.TARGET}.json`,
+                // expose and write the allowed env vars on the compiled bundle
+                transform(content, path) {
+                    // generates the manifest file using the package.json informations
+                    return Buffer.from(
+                        JSON.stringify({
+                            version: process.env.npm_package_version,
+                            ...JSON.parse(content.toString()),
+                        })
+                    );
+                },
+                to: 'manifest.json',
+            },
         ]),
         new HtmlWebpackPlugin({
             template: 'src/options.html',

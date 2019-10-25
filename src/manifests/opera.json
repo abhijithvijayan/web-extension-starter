@@ -1,7 +1,5 @@
 {
-  "manifest_version": 2,
   "name": "Sample WebExtension",
-  "version": "0.0.1",
   "developer": {
     "name": "abhijithvijayan"
   },
@@ -12,6 +10,7 @@
     "persistent": false,
     "scripts": ["js/background.js"]
   },
+  "manifest_version": 2,
   "minimum_opera_version": "36",
   "permissions": ["tabs", "storage", "http://*/*", "https://*/*"],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",

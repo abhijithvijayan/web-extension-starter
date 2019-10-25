@@ -1,7 +1,5 @@
 {
-  "manifest_version": 2,
   "name": "Sample WebExtension",
-  "version": "0.0.1",
   "author": "abhijithvijayan",
   "short_name": "Sample Name",
   "description": "Sample description",
@@ -9,6 +7,7 @@
   "background": {
     "scripts": ["js/background.js"]
   },
+  "manifest_version": 2,
   "permissions": ["tabs", "storage", "http://*/*", "https://*/*"],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "icons": {
