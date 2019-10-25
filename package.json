@@ -8,8 +8,13 @@
   "author": "abhijithvijayan <34790378+abhijithvijayan@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
-    "start": "webpack-dev-server",
+    "dev:chrome": "cross-env NODE_ENV=development cross-env TARGET=chrome webpack --watch --mode=development",
+    "dev:firefox": "cross-env NODE_ENV=development cross-env TARGET=firefox webpack --watch --mode=development",
+    "dev:opera": "cross-env NODE_ENV=development cross-env TARGET=opera webpack --watch --mode=development",
+    "build:chrome": "cross-env NODE_ENV=production cross-env TARGET=chrome webpack --mode=production",
+    "build:firefox": "cross-env NODE_ENV=production cross-env TARGET=firefox webpack --mode=production",
+    "build:opera": "cross-env NODE_ENV=production cross-env TARGET=opera webpack --mode=production",
+    "build": "npm run build:chrome && npm run build:firefox && npm run build:opera",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
