@@ -4,10 +4,6 @@
   "short_name": "Sample Name",
   "description": "Sample description",
   "homepage_url": "https://github.com/abhijithvijayan/web-extension-starter",
-  "background": {
-    "persistent": false,
-    "scripts": ["js/background.js"]
-  },
   "manifest_version": 2,
   "minimum_chrome_version": "49",
   "permissions": ["tabs", "storage", "http://*/*", "https://*/*"],

@@ -37,12 +37,15 @@ module.exports = {
             { from: 'src/assets', to: 'assets' },
             {
                 from: `src/manifests/${process.env.TARGET}.json`,
-                // expose and write the allowed env vars on the compiled bundle
                 transform(content, path) {
                     // generates the manifest file using the package.json informations
                     return Buffer.from(
                         JSON.stringify({
                             version: process.env.npm_package_version,
+                            background: {
+                                persistent: false,
+                                scripts: ['js/background.bundle.js'],
+                            },
                             ...JSON.parse(content.toString()),
                         })
                     );

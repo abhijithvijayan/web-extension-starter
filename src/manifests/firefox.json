@@ -4,9 +4,6 @@
   "short_name": "Sample Name",
   "description": "Sample description",
   "homepage_url": "https://github.com/abhijithvijayan/kutt-extension",
-  "background": {
-    "scripts": ["js/background.js"]
-  },
   "manifest_version": 2,
   "permissions": ["tabs", "storage", "http://*/*", "https://*/*"],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
