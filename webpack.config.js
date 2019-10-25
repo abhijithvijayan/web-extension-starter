@@ -94,6 +94,6 @@ module.exports = {
     optimization: {},
 
     devServer: {
-        open: true,
+        contentBase: path.join(__dirname, 'extension'),
     },
 };
