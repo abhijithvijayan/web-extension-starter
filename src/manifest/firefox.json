@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "name": "Sample WebExtension",
+  "version": "0.0.1",
+  "author": "abhijithvijayan",
+  "short_name": "Sample Name",
+  "description": "Sample description",
+  "homepage_url": "https://github.com/abhijithvijayan/kutt-extension",
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+  "permissions": ["tabs", "storage", "http://*/*", "https://*/*"],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "icons": {
+    "16": "assets/icons/favicon-16.png",
+    "32": "assets/icons/favicon-32.png",
+    "48": "assets/icons/favicon-48.png",
+    "128": "assets/icons/favicon-128.png"
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icons/favicon-16.png",
+      "32": "assets/icons/favicon-32.png",
+      "48": "assets/icons/favicon-48.png",
+      "128": "assets/icons/favicon-128.png"
+    },
+    "default_title": "tiny title",
+    "browser_style": false
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  }
+}
