@@ -21,6 +21,7 @@ module.exports = {
     },
 
     plugins: [
+        new webpack.ProgressPlugin(),
         new FixStyleOnlyEntriesPlugin({ silent: true }),
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: [path.join(process.cwd(), `extension/${process.env.TARGET}`)],
@@ -31,8 +32,18 @@ module.exports = {
             { from: 'src/assets', to: 'assets' },
             { from: `src/manifests/${process.env.TARGET}.json`, to: 'manifest.json' },
         ]),
-        new webpack.ProgressPlugin(),
-        new HtmlWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            template: 'src/options.html',
+            // inject: false,
+            chunks: ['options'],
+            filename: 'options.html',
+        }),
+        new HtmlWebpackPlugin({
+            template: 'src/popup.html',
+            // inject: false,
+            chunks: ['popup'],
+            filename: 'popup.html',
+        }),
     ],
 
     module: {
