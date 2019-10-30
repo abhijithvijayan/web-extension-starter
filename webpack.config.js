@@ -1,13 +1,18 @@
 const path = require('path');
 const webpack = require('webpack');
+const wextManifest = require('wext-manifest');
 const ZipPlugin = require('zip-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WriteWebpackPlugin = require('write-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
 
+const manifestInput = require('./src/manifest');
+
 const targetBrowser = process.env.TARGET_BROWSER;
+const manifest = wextManifest[targetBrowser](manifestInput);
 
 module.exports = {
     mode: 'development',
@@ -35,26 +40,6 @@ module.exports = {
             cleanStaleWebpackAssets: false,
             verbose: true,
         }),
-        new CopyWebpackPlugin([
-            { from: 'src/assets', to: 'assets' },
-            {
-                from: `src/manifests/${targetBrowser}.json`,
-                transform(content, path) {
-                    // generates the manifest file using the package.json informations
-                    return Buffer.from(
-                        JSON.stringify({
-                            version: process.env.npm_package_version,
-                            background: {
-                                persistent: false,
-                                scripts: ['js/background.bundle.js'],
-                            },
-                            ...JSON.parse(content.toString()),
-                        })
-                    );
-                },
-                to: 'manifest.json',
-            },
-        ]),
         new HtmlWebpackPlugin({
             template: 'src/options.html',
             // inject: false,
@@ -67,6 +52,8 @@ module.exports = {
             chunks: ['popup'],
             filename: 'popup.html',
         }),
+        new CopyWebpackPlugin([{ from: 'src/assets', to: 'assets' }]),
+        new WriteWebpackPlugin([{ name: manifest.name, data: Buffer.from(manifest.content) }]),
     ],
 
     module: {
