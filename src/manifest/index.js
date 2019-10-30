@@ -51,6 +51,11 @@ const manifestInput = {
         open_in_tab: true,
         __chrome__chrome_style: false,
     },
+
+    background: {
+        scripts: ['js/background.bundle.js'],
+        '__chrome|opera__persistent': false,
+    },
 };
 
 module.exports = manifestInput;
