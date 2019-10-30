@@ -7,6 +7,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
 
+const targetBrowser = process.env.TARGET_BROWSER;
+
 module.exports = {
     mode: 'development',
 
@@ -19,7 +21,7 @@ module.exports = {
 
     output: {
         filename: 'js/[name].bundle.js',
-        path: path.resolve(__dirname, 'extension', process.env.TARGET),
+        path: path.resolve(__dirname, 'extension', targetBrowser),
     },
 
     plugins: [
@@ -27,8 +29,8 @@ module.exports = {
         new FixStyleOnlyEntriesPlugin({ silent: true }),
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: [
-                path.join(process.cwd(), `extension/${process.env.TARGET}`),
-                path.join(process.cwd(), `extension/${process.env.TARGET}.zip`),
+                path.join(process.cwd(), `extension/${targetBrowser}`),
+                path.join(process.cwd(), `extension/${targetBrowser}.zip`),
             ],
             cleanStaleWebpackAssets: false,
             verbose: true,
@@ -36,7 +38,7 @@ module.exports = {
         new CopyWebpackPlugin([
             { from: 'src/assets', to: 'assets' },
             {
-                from: `src/manifests/${process.env.TARGET}.json`,
+                from: `src/manifests/${targetBrowser}.json`,
                 transform(content, path) {
                     // generates the manifest file using the package.json informations
                     return Buffer.from(
@@ -128,7 +130,7 @@ module.exports = {
             }),
             new ZipPlugin({
                 path: path.resolve(__dirname, 'extension'),
-                filename: `${process.env.TARGET}.zip`,
+                filename: `${targetBrowser}.zip`,
             }),
         ],
     },
