@@ -7301,6 +7301,11 @@ websocket-extensions@>=0.1.1:
   resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.3.tgz#5d2ff22977003ec687a4b87073dfbbac146ccf29"
   integrity sha512-nqHUnMXmBzT0w570r2JpJxfiSD1IzoI+HGVdd3aZ0yNi3ngvQ4jv1dtHt5VGxfI2yj5yqImPhOK4vmIh2xMbGg==
 
+wext-manifest@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/wext-manifest/-/wext-manifest-1.0.0.tgz#65e7e276570cd4fe2b04f6de02cce895afe3964d"
+  integrity sha512-VBVgT4H7S5KKuo+MA3FHH9+70f1mGxhlgmvZ6Z/079TUVV+v7Ypwcfx2IDrfnHIMyUJUtynXSNSCeV05vZy8gA==
+
 which-module@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/which-module/-/which-module-1.0.0.tgz#bba63ca861948994ff307736089e3b96026c2a4f"
