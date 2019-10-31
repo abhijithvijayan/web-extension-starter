@@ -8,18 +8,20 @@
   "author": "abhijithvijayan <34790378+abhijithvijayan@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "dev:chrome": "cross-env NODE_ENV=development cross-env TARGET=chrome webpack --watch --mode=development",
-    "dev:firefox": "cross-env NODE_ENV=development cross-env TARGET=firefox webpack --watch --mode=development",
-    "dev:opera": "cross-env NODE_ENV=development cross-env TARGET=opera webpack --watch --mode=development",
-    "build:chrome": "cross-env NODE_ENV=production cross-env TARGET=chrome webpack --mode=production",
-    "build:firefox": "cross-env NODE_ENV=production cross-env TARGET=firefox webpack --mode=production",
-    "build:opera": "cross-env NODE_ENV=production cross-env TARGET=opera webpack --mode=production",
+    "dev:chrome": "cross-env NODE_ENV=development cross-env TARGET_BROWSER=chrome webpack --watch --mode=development",
+    "dev:firefox": "cross-env NODE_ENV=development cross-env TARGET_BROWSER=firefox webpack --watch --mode=development",
+    "dev:opera": "cross-env NODE_ENV=development cross-env TARGET_BROWSER=opera webpack --watch --mode=development",
+    "build:chrome": "cross-env NODE_ENV=production cross-env TARGET_BROWSER=chrome webpack --mode=production",
+    "build:firefox": "cross-env NODE_ENV=production cross-env TARGET_BROWSER=firefox webpack --mode=production",
+    "build:opera": "cross-env NODE_ENV=production cross-env TARGET_BROWSER=opera webpack --mode=production",
     "build": "yarn run build:chrome && yarn run build:firefox && yarn run build:opera",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+    "@babel/plugin-transform-destructuring": "^7.6.0",
     "@babel/plugin-transform-runtime": "^7.6.2",
     "@babel/preset-env": "^7.6.3",
     "autoprefixer": "^9.7.0",
@@ -30,10 +32,10 @@
     "copy-webpack-plugin": "^5.0.4",
     "cross-env": "^6.0.3",
     "css-loader": "^3.2.0",
-    "eslint": "^6.5.1",
+    "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-onepass": "1.4.2",
-    "eslint-config-prettier": "^6.4.0",
+    "eslint-config-onepass": "1.4.3",
+    "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-html": "^6.0.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
@@ -52,11 +54,13 @@
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.9.0",
     "webpack-fix-style-only-entries": "^0.4.0",
+    "write-webpack-plugin": "^1.1.0",
     "zip-webpack-plugin": "^3.0.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.6.3",
     "terser-webpack-plugin": "^2.2.1",
-    "webextension-polyfill": "^0.5.0"
+    "webextension-polyfill": "^0.5.0",
+    "wext-manifest": "^2.0.0"
   }
 }

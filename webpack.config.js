@@ -1,11 +1,28 @@
 const path = require('path');
 const webpack = require('webpack');
+const wextManifest = require('wext-manifest');
 const ZipPlugin = require('zip-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WriteWebpackPlugin = require('write-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
+
+const manifestInput = require('./src/manifest');
+
+const targetBrowser = process.env.TARGET_BROWSER;
+const manifest = wextManifest[targetBrowser](manifestInput);
+
+const getExtensionFileType = () => {
+    if (targetBrowser === 'opera') {
+        return 'crx';
+    }
+    if (targetBrowser === 'firefox') {
+        return 'xpi';
+    }
+    return 'zip';
+};
 
 module.exports = {
     mode: 'development',
@@ -19,7 +36,7 @@ module.exports = {
 
     output: {
         filename: 'js/[name].bundle.js',
-        path: path.resolve(__dirname, 'extension', process.env.TARGET),
+        path: path.resolve(__dirname, 'extension', targetBrowser),
     },
 
     plugins: [
@@ -27,32 +44,12 @@ module.exports = {
         new FixStyleOnlyEntriesPlugin({ silent: true }),
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: [
-                path.join(process.cwd(), `extension/${process.env.TARGET}`),
-                path.join(process.cwd(), `extension/${process.env.TARGET}.zip`),
+                path.join(process.cwd(), `extension/${targetBrowser}`),
+                path.join(process.cwd(), `extension/${targetBrowser}.${getExtensionFileType()}`),
             ],
             cleanStaleWebpackAssets: false,
             verbose: true,
         }),
-        new CopyWebpackPlugin([
-            { from: 'src/assets', to: 'assets' },
-            {
-                from: `src/manifests/${process.env.TARGET}.json`,
-                transform(content, path) {
-                    // generates the manifest file using the package.json informations
-                    return Buffer.from(
-                        JSON.stringify({
-                            version: process.env.npm_package_version,
-                            background: {
-                                persistent: false,
-                                scripts: ['js/background.bundle.js'],
-                            },
-                            ...JSON.parse(content.toString()),
-                        })
-                    );
-                },
-                to: 'manifest.json',
-            },
-        ]),
         new HtmlWebpackPlugin({
             template: 'src/options.html',
             // inject: false,
@@ -65,6 +62,8 @@ module.exports = {
             chunks: ['popup'],
             filename: 'popup.html',
         }),
+        new CopyWebpackPlugin([{ from: 'src/assets', to: 'assets' }]),
+        new WriteWebpackPlugin([{ name: manifest.name, data: Buffer.from(manifest.content) }]),
     ],
 
     module: {
@@ -128,7 +127,8 @@ module.exports = {
             }),
             new ZipPlugin({
                 path: path.resolve(__dirname, 'extension'),
-                filename: `${process.env.TARGET}.zip`,
+                extension: `${getExtensionFileType()}`,
+                filename: `${targetBrowser}`,
             }),
         ],
     },
