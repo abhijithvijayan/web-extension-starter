@@ -4,6 +4,7 @@
 ## Features
 
 - Cross Browser Support (Web-Extensions API)
+- Browser Taylored Manifest generation
 - Automatic build on code changes.
 - Auto packs browser specific build files
 - ES6 modules support
@@ -30,6 +31,47 @@
 - `yarn run build:firefox` to build firefox addon.
 - `yarn run build:opera` to build opera extension.
 - `yarn run build` builds and packs extensions all at once to extension/ directory.
+
+## Usage
+
+Update `src/manifest/index.js` file with browser vendor prefixed manifest keys
+
+```js
+{
+  "__chrome__name": "SuperChrome",
+  "__firefox__name": "SuperFox",
+  "__edge__name": "SuperEdge",
+  "__opera__name": "SuperOpera"
+}
+```
+
+if the vendor is `chrome` this compiles to:
+
+```js
+{
+  "name": "SuperChrome",
+}
+```
+
+---
+
+Add keys to multiple vendors by seperating them with | in the prefix
+
+```
+{
+  __chrome|opera__name: "SuperBlink"
+}
+```
+
+if the vendor is `chrome` or `opera`, this compiles to:
+
+```
+{
+  "name": "SuperBlink"
+}
+```
+
+See the original [README](https://github.com/abhijithvijayan/wext-manifest) of wext-manifest package for more details
 
 ## Show your support
 
