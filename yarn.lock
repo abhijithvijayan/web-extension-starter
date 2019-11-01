@@ -7322,10 +7322,10 @@ websocket-extensions@>=0.1.1:
   resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.3.tgz#5d2ff22977003ec687a4b87073dfbbac146ccf29"
   integrity sha512-nqHUnMXmBzT0w570r2JpJxfiSD1IzoI+HGVdd3aZ0yNi3ngvQ4jv1dtHt5VGxfI2yj5yqImPhOK4vmIh2xMbGg==
 
-wext-manifest@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/wext-manifest/-/wext-manifest-2.0.0.tgz#8e0a7f08ea72395f070a5407b96d297e7b9c7529"
-  integrity sha512-LraoRQgJr0622/DVjIxxf0y8DU3V2j0WmglqDaWK6b1vpzvIxQZIBZPvMovveU7SYkKtLrXJdTUDf0FwGbkZWg==
+wext-manifest@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/wext-manifest/-/wext-manifest-2.0.1.tgz#d3b3613c44ca168507de60c8077d9596cb98815f"
+  integrity sha512-zaS1nh0irr1+R1CRaOhulFeT3SibwmtmkSoIFuWchCCdjyq0bDzLAn5E3Y96KKYL8FikS5AGfp7dpoll2joYGA==
 
 which-module@^1.0.0:
   version "1.0.0"
