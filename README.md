@@ -73,6 +73,43 @@ if the vendor is `chrome` or `opera`, this compiles to:
 
 See the original [README](https://github.com/abhijithvijayan/wext-manifest) of wext-manifest package for more details
 
+### Development
+
+- `yarn install` to install dependencies.
+- To watch file changes in developement
+
+  - Chrome
+    - `yarn run dev:chrome`
+  - Firefox
+    - `yarn run dev:firefox`
+  - Opera
+    - `yarn run dev:opera`
+
+  (Reload Extension Manually in the browser)
+
+- **Load extension in browser**
+
+  - ### Chrome
+
+    - Go to the browser address bar and type `chrome://extensions`
+    - Check the `Developer Mode` button to enable it.
+    - Click on the `Load Unpacked Extension…` button.
+    - Select your extension’s extracted directory.
+
+  - ### Firefox
+
+    - Load the Add-on via `about:debugging` as temporary Add-on.
+    - Choose the `manifest.json` file in the extracted directory
+
+  - ### Opera
+
+    - Load the extension via `opera:extensions`
+    - Check the `Developer Mode` and load as unpacked from extension’s extracted directory.
+
+### Production
+
+- `yarn run build` builds the extension for all the browsers to `extension/BROWSER` directory respectively.
+
 ## Show your support
 
 Give a ⭐️ if this project helped you!
