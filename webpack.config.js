@@ -29,6 +29,7 @@ module.exports = {
 
     entry: {
         background: './src/scripts/background.js',
+        contentScript: './src/scripts/contentScript.js',
         popup: './src/scripts/popup.js',
         options: './src/scripts/options.js',
         styles: ['./src/styles/popup.scss', './src/styles/options.scss'],
