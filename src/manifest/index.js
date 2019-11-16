@@ -56,6 +56,13 @@ const manifestInput = {
         scripts: ['js/background.bundle.js'],
         '__chrome|opera__persistent': false,
     },
+
+    content_scripts: [
+        {
+            matches: ['http://*/*', 'https://*/*'],
+            js: ['js/contentScript.bundle.js'],
+        },
+    ],
 };
 
 module.exports = manifestInput;
