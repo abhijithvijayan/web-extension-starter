@@ -1,0 +1,19 @@
+language: node_js
+cache:
+  directories:
+    - ~/.npm
+node_js:
+  - 12
+git:
+  depth: 3
+script:
+  - yarn run build
+deploy:
+  provider: pages
+  skip-cleanup: true
+  keep-history: true
+  github-token: $GITHUB_TOKEN
+  local-dir: extension
+  target-branch: extension
+  on:
+    branch: master
