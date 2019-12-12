@@ -16,7 +16,7 @@ const manifestInput = {
     homepage_url: 'https://github.com/abhijithvijayan/web-extension-starter',
     short_name: 'Sample Name',
 
-    permissions: ['tabs', 'storage', 'http://*/*', 'https://*/*'],
+    permissions: ['activeTab', 'storage', 'http://*/*', 'https://*/*'],
     content_security_policy: "script-src 'self' 'unsafe-eval'; object-src 'self'",
 
     '__chrome|firefox__author': 'abhijithvijayan',
