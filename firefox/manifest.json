@@ -12,7 +12,7 @@
   "homepage_url": "https://github.com/abhijithvijayan/web-extension-starter",
   "short_name": "Sample Name",
   "permissions": [
-    "tabs",
+    "activeTab",
     "storage",
     "http://*/*",
     "https://*/*"
