@@ -1,5 +1,7 @@
 <h1 align="center">🚀 web-extension-starter</h1>
 <p align="center">Web Extension starter to build "Write Once Run on Any Browser" extension</p>
+<h3 align="center">🙋‍♂️ Made by <a href="https://twitter.com/_abhijithv">@abhijithvijayan</a></h3>
+
 
 ## Features
 
