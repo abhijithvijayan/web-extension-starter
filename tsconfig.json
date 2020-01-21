@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+      "module": "es6",
+      "noImplicitAny": true,
+      "removeComments": true,
+      "preserveConstEnums": true,
+      "sourceMap": true,
+      "strict": true
+  },
+  "include": [
+      "src/**/*.{ts,tsx}"
+  ],
+  "exclude": [
+      "node_modules",
+      "**/*.spec.ts"
+  ]
+}

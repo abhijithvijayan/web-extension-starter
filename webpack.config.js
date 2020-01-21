@@ -1,3 +1,5 @@
+/* eslint-env node */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require("path");
 const webpack = require("webpack");
 const ZipPlugin = require("zip-webpack-plugin");
@@ -26,13 +28,15 @@ module.exports = {
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
   context: path.resolve(__dirname, "src"),
   entry: {
-    background: "./scripts/background.js",
-    contentScript: "./scripts/contentScript.js",
-    popup: "./scripts/popup.js",
-    options: "./scripts/options.js",
+    background: "./scripts/background.ts",
+    contentScript: "./scripts/contentScript.ts",
+    popup: "./scripts/popup.ts",
+    options: "./scripts/options.ts",
     styles: ["./styles/popup.scss", "./styles/options.scss"]
   },
-
+  resolve: {
+    extensions: [".ts", ".tsx", ".js"]
+  },
   output: {
     filename: "js/[name].bundle.js",
     path: path.resolve(__dirname, "extension", targetBrowser)
@@ -75,22 +79,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.(js|jsx)$/,
+        test: /.tsx?$/,
         include: [path.resolve(__dirname, "scripts")],
-        loader: "babel-loader",
-
-        options: {
-          plugins: ["syntax-dynamic-import"],
-
-          presets: [
-            [
-              "@babel/preset-env",
-              {
-                modules: false
-              }
-            ]
-          ]
-        }
+        use: ["ts-loader"]
       },
       {
         test: /\.scss$/,
