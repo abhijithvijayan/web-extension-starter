@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
-      "module": "es6",
+      "module": "esnext",
       "noImplicitAny": true,
       "removeComments": true,
       "preserveConstEnums": true,
       "sourceMap": true,
-      "strict": true
+      "strict": true,
+      "target": "esnext"
   },
   "include": [
       "src/**/*.{ts,tsx}"
