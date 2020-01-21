@@ -1,18 +1,14 @@
 const path = require('path');
 const webpack = require('webpack');
-const wextManifest = require('wext-manifest');
 const ZipPlugin = require('zip-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WriteWebpackPlugin = require('write-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
-
-const manifestInput = require('./src/manifest');
+const WebextensionPlugin = require('webpack-webextension-plugin');
 
 const targetBrowser = process.env.TARGET_BROWSER;
-const manifest = wextManifest[targetBrowser](manifestInput);
 
 const getExtensionFileType = () => {
     if (targetBrowser === 'opera') {
@@ -26,13 +22,13 @@ const getExtensionFileType = () => {
 
 module.exports = {
     mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
-
+    context: path.resolve(__dirname, 'src'),
     entry: {
-        background: './src/scripts/background.js',
-        contentScript: './src/scripts/contentScript.js',
-        popup: './src/scripts/popup.js',
-        options: './src/scripts/options.js',
-        styles: ['./src/styles/popup.scss', './src/styles/options.scss'],
+        background: './scripts/background.js',
+        contentScript: './scripts/contentScript.js',
+        popup: './scripts/popup.js',
+        options: './scripts/options.js',
+        styles: ['./styles/popup.scss', './styles/options.scss'],
     },
 
     output: {
@@ -53,26 +49,26 @@ module.exports = {
             verbose: true,
         }),
         new HtmlWebpackPlugin({
-            template: 'src/options.html',
+            template: 'options.html',
             // inject: false,
             chunks: ['options'],
             filename: 'options.html',
         }),
         new HtmlWebpackPlugin({
-            template: 'src/popup.html',
+            template: 'popup.html',
             // inject: false,
             chunks: ['popup'],
             filename: 'popup.html',
         }),
-        new CopyWebpackPlugin([{ from: 'src/assets', to: 'assets' }]),
-        new WriteWebpackPlugin([{ name: manifest.name, data: Buffer.from(manifest.content) }]),
+        new CopyWebpackPlugin([{ from: 'assets', to: 'assets' }]),
+        new WebextensionPlugin({ vendor: targetBrowser }),
     ],
 
     module: {
         rules: [
             {
                 test: /.(js|jsx)$/,
-                include: [path.resolve(__dirname, 'src/scripts')],
+                include: [path.resolve(__dirname, 'scripts')],
                 loader: 'babel-loader',
 
                 options: {
@@ -95,7 +91,7 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: '[name].css',
-                            context: './src/styles/',
+                            context: './styles/',
                             outputPath: 'css/',
                         },
                     },
