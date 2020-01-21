@@ -10,11 +10,11 @@ const WebextensionPlugin = require('webpack-webextension-plugin');
 
 const targetBrowser = process.env.TARGET_BROWSER;
 
-const getExtensionFileType = () => {
-    if (targetBrowser === 'opera') {
+const getExtensionFileType = browser => {
+    if (browser === 'opera') {
         return 'crx';
     }
-    if (targetBrowser === 'firefox') {
+    if (browser === 'firefox') {
         return 'xpi';
     }
     return 'zip';
@@ -43,7 +43,7 @@ module.exports = {
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: [
                 path.join(process.cwd(), `extension/${targetBrowser}`),
-                path.join(process.cwd(), `extension/${targetBrowser}.${getExtensionFileType()}`),
+                path.join(process.cwd(), `extension/${targetBrowser}.${getExtensionFileType(targetBrowser)}`),
             ],
             cleanStaleWebpackAssets: false,
             verbose: true,
@@ -125,7 +125,7 @@ module.exports = {
             }),
             new ZipPlugin({
                 path: path.resolve(__dirname, 'extension'),
-                extension: `${getExtensionFileType()}`,
+                extension: `${getExtensionFileType(targetBrowser)}`,
                 filename: `${targetBrowser}`,
             }),
         ],
