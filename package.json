@@ -8,12 +8,12 @@
   "author": "abhijithvijayan <34790378+abhijithvijayan@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "dev:chrome": "cross-env NODE_ENV=development cross-env TARGET_BROWSER=chrome webpack --watch --mode=development",
-    "dev:firefox": "cross-env NODE_ENV=development cross-env TARGET_BROWSER=firefox webpack --watch --mode=development",
-    "dev:opera": "cross-env NODE_ENV=development cross-env TARGET_BROWSER=opera webpack --watch --mode=development",
-    "build:chrome": "cross-env NODE_ENV=production cross-env TARGET_BROWSER=chrome webpack --mode=production",
-    "build:firefox": "cross-env NODE_ENV=production cross-env TARGET_BROWSER=firefox webpack --mode=production",
-    "build:opera": "cross-env NODE_ENV=production cross-env TARGET_BROWSER=opera webpack --mode=production",
+    "dev:chrome": "cross-env NODE_ENV=development cross-env TARGET_BROWSER=chrome webpack --watch",
+    "dev:firefox": "cross-env NODE_ENV=development cross-env TARGET_BROWSER=firefox webpack --watch",
+    "dev:opera": "cross-env NODE_ENV=development cross-env TARGET_BROWSER=opera webpack --watch",
+    "build:chrome": "cross-env NODE_ENV=production cross-env TARGET_BROWSER=chrome webpack",
+    "build:firefox": "cross-env NODE_ENV=production cross-env TARGET_BROWSER=firefox webpack",
+    "build:opera": "cross-env NODE_ENV=production cross-env TARGET_BROWSER=opera webpack ",
     "build": "yarn run build:chrome && yarn run build:firefox && yarn run build:opera",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
