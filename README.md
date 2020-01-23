@@ -7,7 +7,8 @@
 
 - Cross Browser Support (Web-Extensions API)
 - Browser Taylored Manifest generation
-- Automatic build on code changes.
+- Automatic build on code changes
+- Automatic extension reload on browser
 - Auto packs browser specific build files
 - ES6 modules support
 - SASS styling
@@ -86,8 +87,6 @@ See the original [README](https://github.com/abhijithvijayan/wext-manifest) of w
     - `yarn run dev:firefox`
   - Opera
     - `yarn run dev:opera`
-
-  (Reload Extension Manually in the browser)
 
 - **Load extension in browser**
 
