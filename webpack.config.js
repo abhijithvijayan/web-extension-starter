@@ -43,6 +43,7 @@ module.exports = {
     plugins: [
         new webpack.ProgressPlugin(),
         new FixStyleOnlyEntriesPlugin({ silent: true }),
+        new webpack.EnvironmentPlugin(['NODE_ENV', 'TARGET_BROWSER']),
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: [
                 path.join(process.cwd(), `extension/${targetBrowser}`),
