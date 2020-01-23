@@ -7,12 +7,30 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WriteWebpackPlugin = require('write-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ExtensionReloader = require('webpack-extension-reloader');
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
 
 const manifestInput = require('./src/manifest');
 
+const nodeEnv = process.env.NODE_ENV || 'development';
 const targetBrowser = process.env.TARGET_BROWSER;
 const manifest = wextManifest[targetBrowser](manifestInput);
+
+const extensionReloaderPlugin =
+    nodeEnv === 'development'
+        ? new ExtensionReloader({
+              port: 9090,
+              reloadPage: true,
+              entries: {
+                  // TODO: reload manifest on update
+                  contentScript: 'contentScript',
+                  background: 'background',
+                  extensionPage: ['popup', 'options'],
+              },
+          })
+        : () => {
+              this.apply = () => {};
+          };
 
 const getExtensionFileType = browser => {
     if (browser === 'opera') {
@@ -21,11 +39,12 @@ const getExtensionFileType = browser => {
     if (browser === 'firefox') {
         return 'xpi';
     }
+
     return 'zip';
 };
 
 module.exports = {
-    mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+    mode: nodeEnv,
 
     entry: {
         background: './src/scripts/background.js',
@@ -39,34 +58,6 @@ module.exports = {
         filename: 'js/[name].bundle.js',
         path: path.resolve(__dirname, 'extension', targetBrowser),
     },
-
-    plugins: [
-        new webpack.ProgressPlugin(),
-        new FixStyleOnlyEntriesPlugin({ silent: true }),
-        new webpack.EnvironmentPlugin(['NODE_ENV', 'TARGET_BROWSER']),
-        new CleanWebpackPlugin({
-            cleanOnceBeforeBuildPatterns: [
-                path.join(process.cwd(), `extension/${targetBrowser}`),
-                path.join(process.cwd(), `extension/${targetBrowser}.${getExtensionFileType(targetBrowser)}`),
-            ],
-            cleanStaleWebpackAssets: false,
-            verbose: true,
-        }),
-        new HtmlWebpackPlugin({
-            template: 'src/options.html',
-            // inject: false,
-            chunks: ['options'],
-            filename: 'options.html',
-        }),
-        new HtmlWebpackPlugin({
-            template: 'src/popup.html',
-            // inject: false,
-            chunks: ['popup'],
-            filename: 'popup.html',
-        }),
-        new CopyWebpackPlugin([{ from: 'src/assets', to: 'assets' }]),
-        new WriteWebpackPlugin([{ name: manifest.name, data: Buffer.from(manifest.content) }]),
-    ],
 
     module: {
         rules: [
@@ -120,6 +111,35 @@ module.exports = {
             },
         ],
     },
+
+    plugins: [
+        new webpack.ProgressPlugin(),
+        new FixStyleOnlyEntriesPlugin({ silent: true }),
+        new webpack.EnvironmentPlugin(['NODE_ENV', 'TARGET_BROWSER']),
+        new CleanWebpackPlugin({
+            cleanOnceBeforeBuildPatterns: [
+                path.join(process.cwd(), `extension/${targetBrowser}`),
+                path.join(process.cwd(), `extension/${targetBrowser}.${getExtensionFileType(targetBrowser)}`),
+            ],
+            cleanStaleWebpackAssets: false,
+            verbose: true,
+        }),
+        new HtmlWebpackPlugin({
+            template: 'src/options.html',
+            // inject: false,
+            chunks: ['options'],
+            filename: 'options.html',
+        }),
+        new HtmlWebpackPlugin({
+            template: 'src/popup.html',
+            // inject: false,
+            chunks: ['popup'],
+            filename: 'popup.html',
+        }),
+        new CopyWebpackPlugin([{ from: 'src/assets', to: 'assets' }]),
+        new WriteWebpackPlugin([{ name: manifest.name, data: Buffer.from(manifest.content) }]),
+        extensionReloaderPlugin,
+    ],
 
     optimization: {
         minimizer: [
