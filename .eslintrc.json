@@ -1,7 +1,21 @@
 {
-  "extends": ["onepass"],
+  "extends":["onepass"],
   "env": {
     "browser": true,
     "webextensions": true
-  }
+  },
+	"rules": {
+		"no-console": 0,
+		"no-extend-native": 0,
+		"react/jsx-filename-extension": [1, { "extensions": [".jsx", "tsx"] }],
+		"prettier/prettier": [
+			"error",
+			{
+				"trailingComma": "es5",
+				"singleQuote": true,
+				"printWidth": 120,
+				"tabWidth": 4
+			}
+		]
+	}
 }
