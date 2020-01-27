@@ -17,6 +17,7 @@
 		"noFallthroughCasesInSwitch": true, /* Report errors for fallthrough cases in switch statement. */
 
 		/* Additional Checks */
+		"allowSyntheticDefaultImports": true,
 		"noUnusedParameters": true, /* Report errors on unused parameters. */
 		"noImplicitReturns": true, /* Report error when not all code paths in function return a value. */
 		"useDefineForClassFields": true,
