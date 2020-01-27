@@ -1,18 +1,23 @@
 <h1 align="center">🚀 web-extension-starter</h1>
+<h2 align="center">TypeScript + React Version</h2>
 <p align="center">Web Extension starter to build "Write Once Run on Any Browser" extension</p>
 <h3 align="center">🙋‍♂️ Made by <a href="https://twitter.com/_abhijithv">@abhijithvijayan</a></h3>
 
-## TypeScipt + React Version (🚧 [WIP](https://github.com/abhijithvijayan/web-extension-starter/tree/react-typescript))
+<br />
+
+👶🏼 Looking for [Non React/TypeScript Version](https://github.com/abhijithvijayan/web-extension-starter/tree/master) instead?
 
 ## Features
 
 - Cross Browser Support (Web-Extensions API)
 - Browser Taylored Manifest generation
 - Automatic build on code changes
-- Automatic extension reload on browser
 - Auto packs browser specific build files
-- ES6 modules support
 - SASS styling
+- TypeScript by default
+- ES6 modules support
+- React UI Library by default
+- Smart reload
 
 ## Browser Support
 
