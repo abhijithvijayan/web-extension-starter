@@ -12,6 +12,7 @@ const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
 
 const manifestInput = require('./src/manifest');
 
+const viewsPath = path.join(__dirname, 'views');
 const nodeEnv = process.env.NODE_ENV || 'development';
 const targetBrowser = process.env.TARGET_BROWSER;
 const manifest = wextManifest[targetBrowser](manifestInput);
@@ -125,16 +126,16 @@ module.exports = {
             verbose: true,
         }),
         new HtmlWebpackPlugin({
-            template: 'src/options.html',
-            // inject: false,
-            chunks: ['options'],
-            filename: 'options.html',
-        }),
-        new HtmlWebpackPlugin({
-            template: 'src/popup.html',
-            // inject: false,
+            template: path.join(viewsPath, 'popup.html'),
+            inject: 'body',
             chunks: ['popup'],
             filename: 'popup.html',
+        }),
+        new HtmlWebpackPlugin({
+            template: path.join(viewsPath, 'options.html'),
+            inject: 'body',
+            chunks: ['options'],
+            filename: 'options.html',
         }),
         new CopyWebpackPlugin([{ from: 'src/assets', to: 'assets' }]),
         new WriteWebpackPlugin([{ name: manifest.name, data: Buffer.from(manifest.content) }]),
