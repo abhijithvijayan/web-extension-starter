@@ -2,7 +2,9 @@
 <p align="center">Web Extension starter to build "Write Once Run on Any Browser" extension</p>
 <h3 align="center">🙋‍♂️ Made by <a href="https://twitter.com/_abhijithv">@abhijithvijayan</a></h3>
 
-## TypeScipt + React Version (🚧 [WIP](https://github.com/abhijithvijayan/web-extension-starter/tree/react-typescript))
+<br />
+
+🧙‍♂️ Looking for [React-TypeScript Version](https://github.com/abhijithvijayan/web-extension-starter/tree/react-typescript) instead?
 
 ## Features
 
@@ -24,6 +26,13 @@
 ## Demo
 
 - [abhijithvijayan/kutt-extension](https://github.com/abhijithvijayan/kutt-extension)
+
+## Use this template
+
+Create a new directory and run
+```
+curl -fsSL https://github.com/abhijithvijayan/web-extension-starter/archive/master.tar.gz | tar -xz --strip-components=1
+```
 
 ## 🚀 Quick Start
 
