@@ -2,6 +2,7 @@
 <p align="center">Web Extension starter to build "Write Once Run on Any Browser" extension</p>
 <h3 align="center">🙋‍♂️ Made by <a href="https://twitter.com/_abhijithv">@abhijithvijayan</a></h3>
 
+## TypeScipt + React Version (🚧 [WIP](https://github.com/abhijithvijayan/web-extension-starter/tree/react-typescript))
 
 ## Features
 
