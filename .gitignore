@@ -101,7 +101,9 @@ public/
 *.scss.map
 
 ## Build directory
-extension
+extension/
+dist/
+.awcache
 
 # yarn 2
 # https://github.com/yarnpkg/berry/issues/454#issuecomment-530312089
