@@ -13,6 +13,8 @@ const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
 const manifestInput = require('./src/manifest');
 
 const viewsPath = path.join(__dirname, 'views');
+const sourcePath = path.join(__dirname, 'src');
+const destPath = path.join(__dirname, 'extension');
 const nodeEnv = process.env.NODE_ENV || 'development';
 const targetBrowser = process.env.TARGET_BROWSER;
 const manifest = wextManifest[targetBrowser](manifestInput);
@@ -37,6 +39,7 @@ const getExtensionFileType = browser => {
     if (browser === 'opera') {
         return 'crx';
     }
+
     if (browser === 'firefox') {
         return 'xpi';
     }
@@ -52,12 +55,12 @@ module.exports = {
         contentScript: './src/scripts/contentScript.js',
         popup: './src/scripts/popup.js',
         options: './src/scripts/options.js',
-        styles: ['./src/styles/popup.scss', './src/styles/options.scss'],
+        styles: [path.join(sourcePath, 'Popup', 'popup.scss'), path.join(sourcePath, 'Options', 'options.scss')],
     },
 
     output: {
         filename: 'js/[name].bundle.js',
-        path: path.resolve(__dirname, 'extension', targetBrowser),
+        path: path.join(destPath, targetBrowser),
     },
 
     module: {
@@ -115,8 +118,10 @@ module.exports = {
 
     plugins: [
         new webpack.ProgressPlugin(),
+        // https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/518
         new FixStyleOnlyEntriesPlugin({ silent: true }),
         new webpack.EnvironmentPlugin(['NODE_ENV', 'TARGET_BROWSER']),
+        // delete previous build files
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: [
                 path.join(process.cwd(), `extension/${targetBrowser}`),
@@ -137,8 +142,11 @@ module.exports = {
             chunks: ['options'],
             filename: 'options.html',
         }),
+        // copy assets
         new CopyWebpackPlugin([{ from: 'src/assets', to: 'assets' }]),
+        // write manifest.json
         new WriteWebpackPlugin([{ name: manifest.name, data: Buffer.from(manifest.content) }]),
+        // plugin to enable browser reloading in development mode
         extensionReloaderPlugin,
     ],
 
@@ -149,14 +157,10 @@ module.exports = {
                 parallel: true,
             }),
             new ZipPlugin({
-                path: path.resolve(__dirname, 'extension'),
+                path: destPath,
                 extension: `${getExtensionFileType(targetBrowser)}`,
                 filename: `${targetBrowser}`,
             }),
         ],
-    },
-
-    devServer: {
-        contentBase: path.join(__dirname, 'extension'),
     },
 };
