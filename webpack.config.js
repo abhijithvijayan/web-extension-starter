@@ -7,6 +7,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WriteWebpackPlugin = require('write-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { CheckerPlugin } = require('awesome-typescript-loader');
 const ExtensionReloader = require('webpack-extension-reloader');
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
 
@@ -66,22 +67,9 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /.(js|jsx)$/,
-                include: [path.resolve(__dirname, 'src/scripts')],
-                loader: 'babel-loader',
-
-                options: {
-                    plugins: ['syntax-dynamic-import'],
-
-                    presets: [
-                        [
-                            '@babel/preset-env',
-                            {
-                                modules: false,
-                            },
-                        ],
-                    ],
-                },
+                test: /\.(js|ts|tsx)?$/,
+                loader: 'awesome-typescript-loader',
+                exclude: /node_modules/,
             },
             {
                 test: /\.scss$/,
@@ -118,6 +106,8 @@ module.exports = {
 
     plugins: [
         new webpack.ProgressPlugin(),
+        // for awesome-typescript-loader
+        new CheckerPlugin(),
         // https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/518
         new FixStyleOnlyEntriesPlugin({ silent: true }),
         new webpack.EnvironmentPlugin(['NODE_ENV', 'TARGET_BROWSER']),
