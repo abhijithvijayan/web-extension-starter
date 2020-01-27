@@ -52,8 +52,8 @@ module.exports = {
     mode: nodeEnv,
 
     entry: {
-        background: './src/scripts/background.js',
-        contentScript: './src/scripts/contentScript.js',
+        background: path.join(sourcePath, 'Background', 'index.ts'),
+        contentScript: path.join(sourcePath, 'ContentScript', 'index.ts'),
         popup: './src/scripts/popup.js',
         options: './src/scripts/options.js',
         styles: [path.join(sourcePath, 'Popup', 'popup.scss'), path.join(sourcePath, 'Options', 'options.scss')],
