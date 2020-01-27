@@ -30,6 +30,13 @@
 
 - [abhijithvijayan/kutt-extension](https://github.com/abhijithvijayan/kutt-extension)
 
+## Use this template
+
+Create a new directory and run
+```
+curl -fsSL https://github.com/abhijithvijayan/web-extension-starter/archive/react-typescript.tar.gz | tar -xz --strip-components=1
+```
+
 ## 🚀 Quick Start
 
 - `yarn install` to install dependencies.
