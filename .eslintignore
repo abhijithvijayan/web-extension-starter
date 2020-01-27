@@ -1,2 +1,5 @@
 node_modules/
+dist/
 extension/
+.yarn/
+.pnp.js

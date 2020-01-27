@@ -102,3 +102,10 @@ public/
 
 ## Build directory
 extension
+
+# yarn 2
+# https://github.com/yarnpkg/berry/issues/454#issuecomment-530312089
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+.pnp.*
