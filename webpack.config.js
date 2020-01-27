@@ -112,7 +112,6 @@ module.exports = {
     },
 
     plugins: [
-        new webpack.ProgressPlugin(),
         // for awesome-typescript-loader
         new CheckerPlugin(),
         // https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/518
