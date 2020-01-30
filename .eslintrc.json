@@ -1,13 +1,11 @@
 {
-  "extends":["onepass"],
-  "env": {
-    "browser": true,
-    "webextensions": true
-  },
+	"extends":["onepass"],
 	"rules": {
 		"no-console": 0,
 		"no-extend-native": 0,
 		"react/jsx-filename-extension": [1, { "extensions": [".jsx", "tsx"] }],
+		"react/jsx-props-no-spreading": 0,
+		"jsx-a11y/label-has-associated-control": 0,
 		"prettier/prettier": [
 			"error",
 			{
