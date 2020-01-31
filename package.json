@@ -55,8 +55,6 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.0",
     "eslint-plugin-react-hooks": "^2.3.0",
-    "extract-loader": "^3.1.0",
-    "file-loader": "^4.3.0",
     "html-webpack-plugin": "^3.2.0",
     "node-sass": "^4.13.1",
     "postcss-loader": "^3.0.0",
@@ -68,7 +66,6 @@
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-extension-reloader": "^1.1.4",
-    "webpack-fix-style-only-entries": "^0.4.0",
     "wext-manifest": "^2.1.0",
     "write-webpack-plugin": "^1.1.0",
     "zip-webpack-plugin": "^3.0.0"
