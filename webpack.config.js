@@ -9,6 +9,7 @@ const WriteWebpackPlugin = require('write-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { CheckerPlugin } = require('awesome-typescript-loader');
 const ExtensionReloader = require('webpack-extension-reloader');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const manifestInput = require('./src/manifest');
 
@@ -77,33 +78,27 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
-                test: /\.scss$/,
+                test: /\.(sa|sc|c)ss$/,
                 use: [
                     {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].css',
-                            context: './src/styles/',
-                            outputPath: 'css/',
-                        },
+                        loader: MiniCssExtractPlugin.loader, // It creates a CSS file per JS file which contains CSS
                     },
-                    'extract-loader',
                     {
-                        loader: 'css-loader',
+                        loader: 'css-loader', // Takes the CSS files and returns the CSS with imports and url(...) for Webpack
                         options: {
                             sourceMap: true,
                         },
                     },
                     {
-                        loader: 'postcss-loader',
+                        loader: 'postcss-loader', // For autoprefixer
                         options: {
                             ident: 'postcss',
-                            // eslint-disable-next-line global-require
+                            // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
                             plugins: [require('autoprefixer')()],
                         },
                     },
-                    'resolve-url-loader',
-                    'sass-loader',
+                    'resolve-url-loader', // Rewrites relative paths in url() statements
+                    'sass-loader', // Takes the Sass/SCSS file and compiles to the CSS
                 ],
             },
         ],
@@ -135,7 +130,9 @@ module.exports = {
             chunks: ['options'],
             filename: 'options.html',
         }),
-        // copy assets
+        // write css file(s) to build folder
+        new MiniCssExtractPlugin({ filename: 'css/[name].css' }),
+        // copy static assets
         new CopyWebpackPlugin([{ from: 'src/assets', to: 'assets' }]),
         // write manifest.json
         new WriteWebpackPlugin([{ name: manifest.name, data: Buffer.from(manifest.content) }]),
