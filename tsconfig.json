@@ -41,7 +41,7 @@
 		"noUnusedLocals": true,
   },
   "include": [
-    "src/**/*.ts", "src/manifest/index.js"
+    "src/**/*", "src/manifest/index.js"
   ],
   "exclude": [
     "node_modules"
