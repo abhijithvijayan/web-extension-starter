@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Sample WebExtension",
-  "version": "1.1.0",
+  "version": "1.0.0",
   "icons": {
     "16": "assets/icons/favicon-16.png",
     "32": "assets/icons/favicon-32.png",
