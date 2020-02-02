@@ -7,7 +7,7 @@ browser.runtime.onInstalled.addListener(() => {
 
 browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
     // Do something with the message!
-    alert(request.url);
+    // alert(request.url);
 
     // And respond back to the sender.
     return Promise.resolve('got your message, thanks!');
