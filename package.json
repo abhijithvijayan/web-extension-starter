@@ -24,7 +24,6 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.8.4",
-    "terser-webpack-plugin": "^2.3.4",
     "webextension-polyfill": "^0.6.0",
     "wext-manifest": "^2.1.0"
   },
@@ -47,10 +46,10 @@
     "eslint-config-onepass": "^1.6.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-html": "^6.0.0",
-    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^2.3.0",
     "extract-loader": "^3.1.0",
     "file-loader": "^4.3.0",
@@ -60,6 +59,7 @@
     "prettier": "^1.19.1",
     "resolve-url-loader": "^3.1.1",
     "sass-loader": "^8.0.2",
+    "terser-webpack-plugin": "^2.3.4",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
     "webpack-extension-reloader": "^1.1.4",
