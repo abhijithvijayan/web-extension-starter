@@ -45,10 +45,5 @@
   ],
   "exclude": [
     "node_modules"
-	],
-	"awesomeTypescriptLoaderOptions": {
-		"useBabel": true,
-		"babelCore": "@babel/core", // needed for Babel v7,
-		"useCache": true, // Use internal file cache to improve warm-up time.
-	}
+	]
 }
