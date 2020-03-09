@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-		/* Basic Options */
 		"outDir": "dist",
 		/* for manifest/index.js */
 		"allowJs": true,
@@ -44,6 +43,6 @@
     "src/**/*", "src/manifest/index.js"
   ],
   "exclude": [
-    "node_modules"
+		"node_modules"
 	]
 }

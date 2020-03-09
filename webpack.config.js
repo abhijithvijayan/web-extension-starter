@@ -51,8 +51,6 @@ const getExtensionFileType = browser => {
 module.exports = {
     mode: nodeEnv,
 
-    context: __dirname, // to automatically find tsconfig.json
-
     entry: {
         background: path.join(sourcePath, 'Background', 'index.ts'),
         contentScript: path.join(sourcePath, 'ContentScript', 'index.ts'),
@@ -75,12 +73,9 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|ts|tsx)?$/,
-                loader: 'ts-loader',
-                options: {
-                    // disable type checker - we will use it in fork plugin
-                    transpileOnly: true,
-                },
+                test: /\.(js|ts)x?$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/,
             },
             {
                 test: /\.(sa|sc|c)ss$/,
