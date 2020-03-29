@@ -3053,10 +3053,10 @@ eslint-config-airbnb@^18.1.0:
     object.assign "^4.1.0"
     object.entries "^1.1.1"
 
-eslint-config-onepass@^2.1.6:
-  version "2.1.6"
-  resolved "https://registry.yarnpkg.com/eslint-config-onepass/-/eslint-config-onepass-2.1.6.tgz#f2e969b8b324e9624bb5c1b41584a48456d48857"
-  integrity sha512-vmvOpOHAmstanlv5CJNwaAlUTSvZdKPnKWbKQ65z6Kd/54oiuXvurqt9bCAB3wU8UfmMk/jH5tW1mM+7DQH6sg==
+eslint-config-onepass@2.2.0:
+  version "2.2.0"
+  resolved "https://registry.npmjs.org/eslint-config-onepass/-/eslint-config-onepass-2.2.0.tgz#8852e939279afb80fb391f03a28158e07ee9b2b0"
+  integrity sha512-6SCf6VMMUq6t/nCucrDTqy1ktG7ijOr0XBl4xVn6rtL+09jbX4Qta6i63HbcYCEptYzpr1BjICWHZqcdcZ7B7Q==
 
 eslint-config-prettier@^6.10.1:
   version "6.10.1"
@@ -3128,10 +3128,10 @@ eslint-plugin-prettier@^3.1.2:
   dependencies:
     prettier-linter-helpers "^1.0.0"
 
-eslint-plugin-react-hooks@^2.5.1:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-2.5.1.tgz#4ef5930592588ce171abeb26f400c7fbcbc23cd0"
-  integrity sha512-Y2c4b55R+6ZzwtTppKwSmK/Kar8AdLiC2f9NADCuxbcTgPPg41Gyqa6b9GppgXSvCtkRw43ZE86CT5sejKC6/g==
+eslint-plugin-react-hooks@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.npmjs.org/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-3.0.0.tgz#9e80c71846eb68dd29c3b21d832728aa66e5bd35"
+  integrity sha512-EjxTHxjLKIBWFgDJdhKKzLh5q+vjTFrqNZX36uIxWS4OfyXe5DawqPj3U5qeJ1ngLwatjzQnmR0Lz0J0YH3kxw==
 
 eslint-plugin-react@^7.19.0:
   version "7.19.0"
@@ -6060,10 +6060,10 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@^1.19.1:
-  version "1.19.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
-  integrity sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==
+prettier@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.npmjs.org/prettier/-/prettier-2.0.2.tgz#1ba8f3eb92231e769b7fcd7cb73ae1b6b74ade08"
+  integrity sha512-5xJQIPT8BraI7ZnaDwSbu5zLrB6vvi8hVV58yHQ+QK64qrY40dULy0HSRlQ2/2IdzeBpjhDkqdcFBnFeDEMVdg==
 
 pretty-error@^2.0.2:
   version "2.1.1"
