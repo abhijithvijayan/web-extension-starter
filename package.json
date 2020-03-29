@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.8.7",
+    "webext-base-css": "^1.0.0",
     "webextension-polyfill": "^0.6.0",
     "wext-manifest": "^2.1.0"
   },

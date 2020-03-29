@@ -6536,6 +6536,11 @@ watchpack@^1.6.0:
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
 
+webext-base-css@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/webext-base-css/-/webext-base-css-1.0.0.tgz#c39fb2f8834cc90a63a9eb6cb72dd27d4e140d14"
+  integrity sha512-OBS4y/n2WX1wuGFS20QIc6bfaa7cXa5qRky/Ni/hUrZ3oHa1wuyRTnoxWyN7WtVEN+/6AjOwvfEbIpWt3bVbdg==
+
 webextension-polyfill@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/webextension-polyfill/-/webextension-polyfill-0.5.0.tgz#795e0bf6a2b8eadcdb6edaecd169e9228c747519"
