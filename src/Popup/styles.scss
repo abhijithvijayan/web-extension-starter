@@ -17,6 +17,20 @@ body {
     text-align: center;
   }
 
+  #options__button {
+    width: 50%;
+    background: green;
+    color: white;
+    font-weight: 500;
+    border-radius: 15px;
+    padding: 5px 10px;
+    justify-content: center;
+    margin: 20px auto;
+    cursor: pointer;
+    opacity: 0.8;
+    display: flex;
+  }
+
   .links__holder {
     ul {
       display: flex;
@@ -25,13 +39,13 @@ body {
 
       li {
         button {
-          border-radius: 8%;
+          border-radius: 25px;
           font-size: 20px;
           font-weight: 600;
-          background-color: rgba(0, 0 ,255, 0.7);
+          padding: 10px 17px;
+          background-color: rgba(0, 0, 255, 0.7);
           color: white;
           cursor: pointer;
-          padding: 8px 12px;
         }
       }
     }

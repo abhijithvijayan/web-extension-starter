@@ -11,6 +11,15 @@ const Popup: React.FC = () => {
     return (
         <section id="popup">
             <h2>WEB-EXTENSION-STARTER</h2>
+            <button
+                id="options__button"
+                type="button"
+                onClick={(): Promise<Tabs.Tab> => {
+                    return openWebPage('options.html');
+                }}
+            >
+                Options Page
+            </button>
             <div className="links__holder">
                 <ul>
                     <li>
