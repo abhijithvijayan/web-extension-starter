@@ -40,8 +40,8 @@
     "@types/react": "^16.9.27",
     "@types/react-dom": "^16.9.5",
     "@types/webpack": "^4.41.9",
-    "@typescript-eslint/eslint-plugin": "^2.25.0",
-    "@typescript-eslint/parser": "^2.25.0",
+    "@typescript-eslint/eslint-plugin": "^2.26.0",
+    "@typescript-eslint/parser": "^2.26.0",
     "autoprefixer": "^9.7.5",
     "babel-eslint": "10.1.0",
     "babel-loader": "^8.1.0",
@@ -73,7 +73,7 @@
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-extension-reloader": "^1.1.4",
-    "wext-manifest": "^2.1.0",
+    "wext-manifest": "^2.2.0",
     "write-webpack-plugin": "^1.1.0",
     "zip-webpack-plugin": "^3.0.0"
   }
