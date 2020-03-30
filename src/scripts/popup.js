@@ -27,4 +27,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('donate__button').addEventListener('click', () => {
         return openWebPage('https://www.buymeacoffee.com/abhijithvijayan');
     });
+
+    document.getElementById('options__button').addEventListener('click', () => {
+        return openWebPage('options.html');
+    });
 });
