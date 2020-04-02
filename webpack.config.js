@@ -1,25 +1,21 @@
 const path = require('path');
 const webpack = require('webpack');
-const wextManifest = require('wext-manifest');
 const ZipPlugin = require('zip-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WriteWebpackPlugin = require('write-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ExtensionReloader = require('webpack-extension-reloader');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WextManifestWebpackPlugin = require('wext-manifest-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-
-const manifestInput = require('./src/manifest');
 
 const viewsPath = path.join(__dirname, 'views');
 const sourcePath = path.join(__dirname, 'src');
 const destPath = path.join(__dirname, 'extension');
 const nodeEnv = process.env.NODE_ENV || 'development';
 const targetBrowser = process.env.TARGET_BROWSER;
-const manifest = wextManifest[targetBrowser](manifestInput);
 
 const extensionReloaderPlugin =
     nodeEnv === 'development'
@@ -37,7 +33,7 @@ const extensionReloaderPlugin =
               this.apply = () => {};
           };
 
-const getExtensionFileType = browser => {
+const getExtensionFileType = (browser) => {
     if (browser === 'opera') {
         return 'crx';
     }
@@ -53,6 +49,7 @@ module.exports = {
     mode: nodeEnv,
 
     entry: {
+        manifest: path.join(sourcePath, 'manifest.json'),
         background: path.join(sourcePath, 'Background', 'index.ts'),
         contentScript: path.join(sourcePath, 'ContentScript', 'index.ts'),
         popup: path.join(sourcePath, 'Popup', 'index.tsx'),
@@ -60,8 +57,8 @@ module.exports = {
     },
 
     output: {
-        filename: 'js/[name].bundle.js',
         path: path.join(destPath, targetBrowser),
+        filename: 'js/[name].bundle.js',
     },
 
     resolve: {
@@ -73,6 +70,12 @@ module.exports = {
 
     module: {
         rules: [
+            {
+                type: 'javascript/auto', // prevent webpack handling json with its own loaders,
+                test: /manifest\.json$/,
+                use: 'wext-manifest-loader',
+                exclude: /node_modules/,
+            },
             {
                 test: /\.(js|ts)x?$/,
                 loader: 'babel-loader',
@@ -106,6 +109,8 @@ module.exports = {
     },
 
     plugins: [
+        // Plugin to not generate js bundle for manifest entry
+        new WextManifestWebpackPlugin(),
         new ForkTsCheckerWebpackPlugin(),
         // environmental variables
         new webpack.EnvironmentPlugin(['NODE_ENV', 'TARGET_BROWSER']),
@@ -134,8 +139,6 @@ module.exports = {
         new MiniCssExtractPlugin({ filename: 'css/[name].css' }),
         // copy static assets
         new CopyWebpackPlugin([{ from: 'src/assets', to: 'assets' }]),
-        // write manifest.json
-        new WriteWebpackPlugin([{ name: manifest.name, data: Buffer.from(manifest.content) }]),
         // plugin to enable browser reloading in development mode
         extensionReloaderPlugin,
     ],
