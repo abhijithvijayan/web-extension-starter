@@ -1129,6 +1129,11 @@ adjust-sourcemap-loader@2.0.0:
     object-path "0.11.4"
     regex-parser "2.2.10"
 
+advanced-css-reset@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/advanced-css-reset/-/advanced-css-reset-1.1.0.tgz#47fb1e9a75f19197bc1eab2076fc00b43f8f2a8c"
+  integrity sha512-n28VUgOovvi/qZqqPgA+H/rHvncITgCxFRCwfCxHcvNDZvrc6fWqTKcIYUP8qTNgEDAfsE020CALR2uCpBcp3g==
+
 aggregate-error@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/aggregate-error/-/aggregate-error-3.0.1.tgz#db2fe7246e536f40d9b5442a39e117d7dd6a24e0"

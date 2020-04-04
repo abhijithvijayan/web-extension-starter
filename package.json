@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.9.2",
+    "advanced-css-reset": "^1.1.0",
     "webext-base-css": "^1.0.0",
     "webextension-polyfill": "^0.6.0"
   },
