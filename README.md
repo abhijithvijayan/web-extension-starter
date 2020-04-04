@@ -90,7 +90,7 @@ Then run the following:
     - Check the `Developer Mode` and load as unpacked from extension’s extracted directory.
    
 ### Generating browser specific manifest.json
-Update `src/manifest/index.js` file with browser vendor prefixed manifest keys
+Update `src/manifest.json` file with browser vendor prefixed manifest keys
 
 ```js
 {
@@ -127,7 +127,7 @@ if the vendor is `chrome` or `opera`, this compiles to:
 }
 ```
 
-See the original [README](https://github.com/abhijithvijayan/wext-manifest) of wext-manifest package for more details
+See the original [README](https://github.com/abhijithvijayan/wext-manifest-loader) of `wext-manifest-loader` package for more details
 
 ### Production
 

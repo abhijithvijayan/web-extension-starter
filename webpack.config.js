@@ -1,21 +1,17 @@
 const path = require('path');
 const webpack = require('webpack');
-const wextManifest = require('wext-manifest');
 const ZipPlugin = require('zip-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WriteWebpackPlugin = require('write-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ExtensionReloader = require('webpack-extension-reloader');
+const WextManifestWebpackPlugin = require('wext-manifest-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
 
-const manifestInput = require('./src/manifest');
-
 const nodeEnv = process.env.NODE_ENV || 'development';
 const targetBrowser = process.env.TARGET_BROWSER;
-const manifest = wextManifest[targetBrowser](manifestInput);
 
 const extensionReloaderPlugin =
     nodeEnv === 'development'
@@ -48,6 +44,7 @@ module.exports = {
     mode: nodeEnv,
 
     entry: {
+        manifest: './src/manifest.json',
         background: './src/scripts/background.js',
         contentScript: './src/scripts/contentScript.js',
         popup: './src/scripts/popup.js',
@@ -56,12 +53,18 @@ module.exports = {
     },
 
     output: {
-        filename: 'js/[name].bundle.js',
         path: path.resolve(__dirname, 'extension', targetBrowser),
+        filename: 'js/[name].bundle.js'
     },
 
     module: {
         rules: [
+            {
+                type: 'javascript/auto', // prevent webpack handling json with its own loaders,
+                test: /manifest\.json$/,
+                use: 'wext-manifest-loader',
+                exclude: /node_modules/,
+            },
             {
                 test: /.(js|jsx)$/,
                 include: [path.resolve(__dirname, 'src/scripts')],
@@ -115,6 +118,7 @@ module.exports = {
 
     plugins: [
         new webpack.ProgressPlugin(),
+        new WextManifestWebpackPlugin(),
         new FixStyleOnlyEntriesPlugin({ silent: true }),
         new webpack.EnvironmentPlugin(['NODE_ENV', 'TARGET_BROWSER']),
         new CleanWebpackPlugin({
@@ -138,7 +142,6 @@ module.exports = {
             filename: 'popup.html',
         }),
         new CopyWebpackPlugin([{ from: 'src/assets', to: 'assets' }]),
-        new WriteWebpackPlugin([{ name: manifest.name, data: Buffer.from(manifest.content) }]),
         extensionReloaderPlugin,
     ],
 
