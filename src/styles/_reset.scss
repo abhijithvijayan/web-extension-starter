@@ -1,31 +1,10 @@
-// Forked from Normalize.css, Reboot.css, Sanitize.css, and Untouched.css
+@import '~advanced-css-reset/dist/reset.css';
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-
-*:focus {
-  outline: 0;
-}
-
-ol,
-ul {
-  list-style-type: none;
-}
+// Add your custom reset rules here
 
 * {
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
-}
-
-body {
-  overflow-x: hidden;
-}
-
-a:link {
-  text-decoration: none;
 }
