@@ -7792,12 +7792,13 @@ webpack@^4.42.1:
     watchpack "^1.6.0"
     webpack-sources "^1.4.1"
 
-wext-manifest-loader@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/wext-manifest-loader/-/wext-manifest-loader-1.0.1.tgz#8b8c5fbbd1f78deda2286e7d23c4e3c8920a03b7"
-  integrity sha512-MSjoe2xhAu2C/3hhOD+/oDR8o0tzqsKQBREgfcE0NBMAAU0BumXCxNTeC0AxoFL8VtV+hjY4+Ljm+gcAIaJ0iw==
+wext-manifest-loader@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/wext-manifest-loader/-/wext-manifest-loader-1.1.2.tgz#a8c9c905fea0e0f611f5afd7b720c9ca4e8f7346"
+  integrity sha512-H8j2iMKGmeqBvGCYnWb6KFamG/jRtElIGiJJp7bgue/mKGlmR4LqzbXKBHBkaSyZRf1CqzykVt2BVEGvFbc2TQ==
   dependencies:
     loader-utils "^2.0.0"
+    schema-utils "^2.6.5"
 
 wext-manifest-webpack-plugin@^1.0.3:
   version "1.0.3"

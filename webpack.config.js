@@ -73,7 +73,12 @@ module.exports = {
             {
                 type: 'javascript/auto', // prevent webpack handling json with its own loaders,
                 test: /manifest\.json$/,
-                use: 'wext-manifest-loader',
+                use: {
+                    loader: 'wext-manifest-loader',
+                    options: {
+                        usePackageJSONVersion: true, // set to false to not use package.json version for manifest
+                    },
+                },
                 exclude: /node_modules/,
             },
             {
