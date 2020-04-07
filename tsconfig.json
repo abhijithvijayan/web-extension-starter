@@ -37,10 +37,10 @@
 		"pretty": true,
 		"newLine": "lf",
 		"stripInternal": true,
-		"noUnusedLocals": true,
+		"noUnusedLocals": true
   },
   "include": [
-    "src/**/*", "src/manifest/index.js"
+    "src/**/*"
   ],
   "exclude": [
 		"node_modules"
