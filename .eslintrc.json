@@ -1,9 +1,11 @@
 {
-	"extends":["onepass"],
+	"extends": ["onepass"],
 	"rules": {
 		"no-console": 0,
 		"no-extend-native": 0,
-		"react/jsx-filename-extension": [1, { "extensions": [".jsx", "tsx"] }],
+		"react/jsx-filename-extension": [1, {
+			"extensions": [".jsx", "tsx"]
+		}],
 		"react/jsx-props-no-spreading": 0,
 		"jsx-a11y/label-has-associated-control": 0,
 		"prettier/prettier": [
@@ -17,11 +19,11 @@
 		]
 	},
 	"settings": {
-    "import/resolver": {
-      "node": {
+		"import/resolver": {
+			"node": {
 				"extensions": [".js", ".jsx", ".ts", ".tsx"],
-				"moduleDirectory": ["node_modules", "src/"]
-      }
-    }
-  }
+				"moduleDirectory": ["node_modules", "source/"]
+			}
+		}
+	}
 }

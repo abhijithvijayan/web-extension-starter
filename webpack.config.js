@@ -12,7 +12,7 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const viewsPath = path.join(__dirname, 'views');
-const sourcePath = path.join(__dirname, 'src');
+const sourcePath = path.join(__dirname, 'source');
 const destPath = path.join(__dirname, 'extension');
 const nodeEnv = process.env.NODE_ENV || 'development';
 const targetBrowser = process.env.TARGET_BROWSER;
@@ -143,7 +143,7 @@ module.exports = {
         // write css file(s) to build folder
         new MiniCssExtractPlugin({ filename: 'css/[name].css' }),
         // copy static assets
-        new CopyWebpackPlugin([{ from: 'src/assets', to: 'assets' }]),
+        new CopyWebpackPlugin([{ from: 'source/assets', to: 'assets' }]),
         // plugin to enable browser reloading in development mode
         extensionReloaderPlugin,
     ],

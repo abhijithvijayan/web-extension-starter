@@ -93,7 +93,7 @@ Then run the following:
     - Check the `Developer Mode` and load as unpacked from extension’s extracted directory.
    
 ### Generating browser specific manifest.json
-Update `src/manifest.json` file with browser vendor prefixed manifest keys
+Update `source/manifest.json` file with browser vendor prefixed manifest keys
 
 ```js
 {
