@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@abhijithvijayan/tsconfig@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@abhijithvijayan/tsconfig/-/tsconfig-1.1.2.tgz#37e3da206bcfb3bf782bbc2ba992f635c30b36ee"
+  integrity sha512-Dk1QXwuV2HKMIiaRQp0Gv+nZRKoNGw4YVLk4ap3HVIFd0lw8+Qrvl043XKWETk0XSgt+z9O5+pYdJVvuay2W5Q==
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.8.3":
   version "7.8.3"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.8.3.tgz#33e25903d7481181534e12ec0a25f16b6fcf419e"

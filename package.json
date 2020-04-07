@@ -30,6 +30,7 @@
     "webextension-polyfill-ts": "^0.14.0"
   },
   "devDependencies": {
+    "@abhijithvijayan/tsconfig": "^1.1.2",
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.9.0",
