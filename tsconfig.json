@@ -1,24 +1,21 @@
 {
 	"extends": "@abhijithvijayan/tsconfig",
 	"compilerOptions": {
-		"outDir": "dist",
 		"target": "es5", // ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'.
 		"module": "esnext", // Module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'.
-		"jsx": "react",
 		"lib": [
 			"dom",
 			"dom.iterable",
 			"esnext"
 		],
-		"noEmit": true, // Do not emit outputs.
-		"esModuleInterop": true,
+		"declaration": false,
 		"isolatedModules": true,
 		/* Additional Checks */
-		"allowSyntheticDefaultImports": true,
 		"useDefineForClassFields": true,
 		"skipLibCheck": true,
 	},
 	"include": [
-		"source"
+		"source",
+		"webpack.config.ts"
 	]
 }
