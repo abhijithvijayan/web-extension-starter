@@ -1,29 +1,12 @@
 {
-	"extends": ["onepass"],
+	"extends": [
+		"@abhijithvijayan/eslint-config/typescript",
+		"@abhijithvijayan/eslint-config/react"
+	],
 	"rules": {
-		"no-console": 0,
-		"no-extend-native": 0,
-		"react/jsx-filename-extension": [1, {
-			"extensions": [".jsx", "tsx"]
-		}],
-		"react/jsx-props-no-spreading": 0,
-		"jsx-a11y/label-has-associated-control": 0,
-		"prettier/prettier": [
-			"error",
-			{
-				"trailingComma": "es5",
-				"singleQuote": true,
-				"printWidth": 120,
-				"tabWidth": 4
-			}
-		]
-	},
-	"settings": {
-		"import/resolver": {
-			"node": {
-				"extensions": [".js", ".jsx", ".ts", ".tsx"],
-				"moduleDirectory": ["node_modules", "source/"]
-			}
-		}
+		"no-console": "off",
+		"no-extend-native": "off",
+		"react/jsx-props-no-spreading": "off",
+		"jsx-a11y/label-has-associated-control": "off"
 	}
 }
