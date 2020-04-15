@@ -7,8 +7,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ExtensionReloader = require('webpack-extension-reloader');
 const WextManifestWebpackPlugin = require('wext-manifest-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const nodeEnv = process.env.NODE_ENV || 'development';
 const targetBrowser = process.env.TARGET_BROWSER;
@@ -29,7 +29,7 @@ const extensionReloaderPlugin =
               this.apply = () => {};
           };
 
-const getExtensionFileType = browser => {
+const getExtensionFileType = (browser) => {
     if (browser === 'opera') {
         return 'crx';
     }
@@ -54,7 +54,7 @@ module.exports = {
 
     output: {
         path: path.resolve(__dirname, 'extension', targetBrowser),
-        filename: 'js/[name].bundle.js'
+        filename: 'js/[name].bundle.js',
     },
 
     module: {
@@ -102,7 +102,7 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                            sourceMap: nodeEnv === 'development' ? true : false,
+                            sourceMap: nodeEnv === 'development',
                         },
                     },
                     {

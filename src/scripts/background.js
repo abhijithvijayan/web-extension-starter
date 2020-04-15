@@ -5,7 +5,7 @@ browser.runtime.onInstalled.addListener(() => {
     console.log('onInstalled....');
 });
 
-browser.runtime.onMessage.addListener((request, sender, sendResponse) => {
+browser.runtime.onMessage.addListener((_request, _sender, _sendResponse) => {
     // Do something with the message!
     // alert(request.url);
 
