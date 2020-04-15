@@ -44,12 +44,12 @@ module.exports = {
     mode: nodeEnv,
 
     entry: {
-        manifest: './src/manifest.json',
-        background: './src/scripts/background.js',
-        contentScript: './src/scripts/contentScript.js',
-        popup: './src/scripts/popup.js',
-        options: './src/scripts/options.js',
-        styles: ['./src/styles/popup.scss', './src/styles/options.scss'],
+        manifest: './source/manifest.json',
+        background: './source/scripts/background.js',
+        contentScript: './source/scripts/contentScript.js',
+        popup: './source/scripts/popup.js',
+        options: './source/scripts/options.js',
+        styles: ['./source/styles/popup.scss', './source/styles/options.scss'],
     },
 
     output: {
@@ -71,7 +71,7 @@ module.exports = {
             },
             {
                 test: /.(js|jsx)$/,
-                include: [path.resolve(__dirname, 'src/scripts')],
+                include: [path.resolve(__dirname, 'source/scripts')],
                 loader: 'babel-loader',
 
                 options: {
@@ -94,7 +94,7 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             name: '[name].css',
-                            context: './src/styles/',
+                            context: './source/styles/',
                             outputPath: 'css/',
                         },
                     },
@@ -134,18 +134,18 @@ module.exports = {
             verbose: true,
         }),
         new HtmlWebpackPlugin({
-            template: 'src/options.html',
+            template: 'source/options.html',
             // inject: false,
             chunks: ['options'],
             filename: 'options.html',
         }),
         new HtmlWebpackPlugin({
-            template: 'src/popup.html',
+            template: 'source/popup.html',
             // inject: false,
             chunks: ['popup'],
             filename: 'popup.html',
         }),
-        new CopyWebpackPlugin([{ from: 'src/assets', to: 'assets' }]),
+        new CopyWebpackPlugin([{ from: 'source/assets', to: 'assets' }]),
         extensionReloaderPlugin,
     ],
 
