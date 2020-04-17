@@ -46,6 +46,8 @@ const getExtensionFileType = (browser) => {
 };
 
 module.exports = {
+  devtool: false, // https://github.com/webpack/webpack/issues/1194#issuecomment-560382342
+
   mode: nodeEnv,
 
   entry: {
@@ -118,6 +120,8 @@ module.exports = {
   plugins: [
     // Plugin to not generate js bundle for manifest entry
     new WextManifestWebpackPlugin(),
+    // Generate sourcemaps
+    new webpack.SourceMapDevToolPlugin({filename: false}),
     new ForkTsCheckerWebpackPlugin(),
     // environmental variables
     new webpack.EnvironmentPlugin(['NODE_ENV', 'TARGET_BROWSER']),
