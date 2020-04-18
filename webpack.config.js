@@ -45,6 +45,13 @@ module.exports = {
 
   mode: nodeEnv,
 
+  stats: {
+    all: false,
+    builtAt: true,
+    errors: true,
+    hash: true,
+  },
+
   entry: {
     manifest: './source/manifest.json',
     background: './source/scripts/background.js',
