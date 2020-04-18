@@ -48,6 +48,13 @@ const getExtensionFileType = (browser) => {
 module.exports = {
   devtool: false, // https://github.com/webpack/webpack/issues/1194#issuecomment-560382342
 
+  stats: {
+    all: false,
+    builtAt: true,
+    errors: true,
+    hash: true,
+  },
+
   mode: nodeEnv,
 
   entry: {
