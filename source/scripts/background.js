@@ -1,8 +1,9 @@
+import 'unicorn.log';
 import browser from 'webextension-polyfill';
 
 browser.runtime.onInstalled.addListener(() => {
   // eslint-disable-next-line no-console
-  console.log('onInstalled....');
+  console.unicorn('onInstalled....');
 });
 
 browser.runtime.onMessage.addListener((_request, _sender, _sendResponse) => {

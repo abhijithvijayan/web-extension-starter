@@ -1,3 +1,4 @@
+import 'unicorn.log';
 import browser from 'webextension-polyfill';
 
 function openWebPage(url) {
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   // eslint-disable-next-line no-console
-  console.log(response);
+  console.unicorn(response);
 
   document.getElementById('github__button').addEventListener('click', () => {
     return openWebPage(
