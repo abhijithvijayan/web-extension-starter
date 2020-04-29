@@ -73,7 +73,7 @@
     "webpack-extension-reloader": "^1.1.4",
     "webpack-fix-style-only-entries": "^0.4.0",
     "wext-manifest-loader": "^1.1.2",
-    "wext-manifest-webpack-plugin": "^1.1.0",
+    "wext-manifest-webpack-plugin": "^1.1.1",
     "zip-webpack-plugin": "^3.0.0"
   }
 }
