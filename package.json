@@ -24,9 +24,9 @@
   "dependencies": {
     "@babel/runtime": "^7.9.2",
     "advanced-css-reset": "^1.1.1",
+    "emoji-log": "^1.0.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "unicorn.log": "^1.7.0",
     "webext-base-css": "^1.1.0",
     "webextension-polyfill-ts": "^0.14.0"
   },
