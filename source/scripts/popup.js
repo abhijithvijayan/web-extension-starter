@@ -1,4 +1,4 @@
-import 'unicorn.log';
+import 'emoji-log';
 import browser from 'webextension-polyfill';
 
 function openWebPage(url) {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   });
 
   // eslint-disable-next-line no-console
-  console.unicorn(response);
+  console.emoji('🦄', response);
 
   document.getElementById('github__button').addEventListener('click', () => {
     return openWebPage(

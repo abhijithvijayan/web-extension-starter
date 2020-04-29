@@ -1,4 +1,4 @@
-import 'unicorn.log';
+import 'emoji-log';
 
 // eslint-disable-next-line no-console
-console.unicorn('Hello World from options main file!');
+console.emoji('🦄', 'Hello World from options main file!');

@@ -1,9 +1,9 @@
-import 'unicorn.log';
+import 'emoji-log';
 import browser from 'webextension-polyfill';
 
 browser.runtime.onInstalled.addListener(() => {
   // eslint-disable-next-line no-console
-  console.unicorn('onInstalled....');
+  console.emoji('🦄', 'onInstalled....');
 });
 
 browser.runtime.onMessage.addListener((_request, _sender, _sendResponse) => {
