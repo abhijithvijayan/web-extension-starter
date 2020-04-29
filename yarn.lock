@@ -7838,10 +7838,12 @@ wext-manifest-loader@^1.1.5:
     loader-utils "^2.0.0"
     schema-utils "^2.6.5"
 
-wext-manifest-webpack-plugin@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/wext-manifest-webpack-plugin/-/wext-manifest-webpack-plugin-1.0.6.tgz#962e367416d5cbb139446452106bf39766970578"
-  integrity sha512-ZJByhus+5kQ2vnTiDrRwmNx6FqI8GrEfs9jasNjDsgbg4wMlY13V44IeWI2cBkMwqiH8tFKRUjDDPWD7FmIF1g==
+wext-manifest-webpack-plugin@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/wext-manifest-webpack-plugin/-/wext-manifest-webpack-plugin-1.1.1.tgz#0c728fbe46b3f554e724aaedbaadb3a0d6af4e08"
+  integrity sha512-Z7WNjqV5PUt11UxSb0V9+j6b7WOrKSfJ7yDg5Ave/M+sdlwkfcwHn2U/mSAdJDHCroaywqz87kZZ/mRG02yPMQ==
+  dependencies:
+    emoji-log "^1.0.2"
 
 which-module@^1.0.0:
   version "1.0.0"
