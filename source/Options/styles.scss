@@ -1,0 +1,10 @@
+@import "../styles/fonts";
+@import "../styles/reset";
+@import "../styles/variables";
+
+@import "~webext-base-css/webext-base.css";
+
+body {
+  color: $black;
+  background-color: $greyWhite;
+}

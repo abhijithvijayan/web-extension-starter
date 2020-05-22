@@ -1,48 +1,21 @@
 {
-  "compilerOptions": {
-		"outDir": "dist",
-		/* for manifest/index.js */
-		"allowJs": true,
-		"target": "es5", /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */
-		"module": "esnext", /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
-		"jsx": "react",
+	"extends": "@abhijithvijayan/tsconfig",
+	"compilerOptions": {
+		"target": "es5", // ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'.
+		"module": "esnext", // Module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'.
 		"lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-		"removeComments": true, /* Do not emit comments to output. */
-		"noEmit": true, /* Do not emit outputs. */
-		"noEmitOnError": true,
-
-    "esModuleInterop": true,
-    "isolatedModules": true,
-
-		/* Strict Type-Checking Options */
-		"strict": true,
-		"noFallthroughCasesInSwitch": true, /* Report errors for fallthrough cases in switch statement. */
-
+			"dom",
+			"dom.iterable",
+			"esnext"
+		],
+		"declaration": false,
+		"isolatedModules": true,
 		/* Additional Checks */
-		"allowSyntheticDefaultImports": true,
-		"noUnusedParameters": true, /* Report errors on unused parameters. */
-		"noImplicitReturns": true, /* Report error when not all code paths in function return a value. */
 		"useDefineForClassFields": true,
-		"forceConsistentCasingInFileNames": true,
 		"skipLibCheck": true,
-
-		/* Module Resolution Options */
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"declaration": true,
-		"pretty": true,
-		"newLine": "lf",
-		"stripInternal": true,
-		"noUnusedLocals": true,
-  },
-  "include": [
-    "src/**/*", "src/manifest/index.js"
-  ],
-  "exclude": [
-		"node_modules"
+	},
+	"include": [
+		"source",
+		"webpack.config.ts"
 	]
 }
