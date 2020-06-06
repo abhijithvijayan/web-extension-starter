@@ -4,7 +4,7 @@
       // Latest stable ECMAScript features
       "@babel/preset-env",
       {
-        "useBuiltIns": "entry",
+        "useBuiltIns": false,
         // Do not transform modules to CJS
         "modules": false,
         "targets": {
@@ -20,8 +20,12 @@
   ],
   "plugins": [
     ["@babel/plugin-proposal-class-properties"],
-    ["@babel/plugin-transform-destructuring", { "useBuiltIns": true }],
-    ["@babel/plugin-proposal-object-rest-spread", { "useBuiltIns": true }],
+    ["@babel/plugin-transform-destructuring", {
+      "useBuiltIns": true
+    }],
+    ["@babel/plugin-proposal-object-rest-spread", {
+      "useBuiltIns": true
+    }],
     [
       // Polyfills the runtime needed for async/await and generators
       "@babel/plugin-transform-runtime",
