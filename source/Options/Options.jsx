@@ -2,7 +2,7 @@ import React from 'react';
 
 import './styles.scss';
 
-const Options: React.FC = () => {
+const Options = () => {
   return (
     <div>
       <form>

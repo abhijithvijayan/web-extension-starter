@@ -8,7 +8,6 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const ExtensionReloader = require('webpack-extension-reloader');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const WextManifestWebpackPlugin = require('wext-manifest-webpack-plugin');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const viewsPath = path.join(__dirname, 'views');
@@ -59,10 +58,10 @@ module.exports = {
 
   entry: {
     manifest: path.join(sourcePath, 'manifest.json'),
-    background: path.join(sourcePath, 'Background', 'index.ts'),
-    contentScript: path.join(sourcePath, 'ContentScript', 'index.ts'),
-    popup: path.join(sourcePath, 'Popup', 'index.tsx'),
-    options: path.join(sourcePath, 'Options', 'index.tsx'),
+    background: path.join(sourcePath, 'Background', 'index.js'),
+    contentScript: path.join(sourcePath, 'ContentScript', 'index.js'),
+    popup: path.join(sourcePath, 'Popup', 'index.jsx'),
+    options: path.join(sourcePath, 'Options', 'index.jsx'),
   },
 
   output: {
@@ -71,10 +70,10 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.json'],
+    extensions: ['.js', '.jsx', '.json'],
     alias: {
-      'webextension-polyfill-ts': path.resolve(
-        path.join(__dirname, 'node_modules', 'webextension-polyfill-ts')
+      'webextension-polyfill': path.resolve(
+        path.join(__dirname, 'node_modules', 'webextension-polyfill')
       ),
     },
   },
@@ -113,7 +112,7 @@ module.exports = {
             loader: 'postcss-loader', // For autoprefixer
             options: {
               ident: 'postcss',
-              // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
+              // eslint-disable-next-line global-require
               plugins: [require('autoprefixer')()],
             },
           },
@@ -129,7 +128,6 @@ module.exports = {
     new WextManifestWebpackPlugin(),
     // Generate sourcemaps
     new webpack.SourceMapDevToolPlugin({filename: false}),
-    new ForkTsCheckerWebpackPlugin(),
     // environmental variables
     new webpack.EnvironmentPlugin(['NODE_ENV', 'TARGET_BROWSER']),
     // delete previous build files

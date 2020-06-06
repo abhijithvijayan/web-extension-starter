@@ -1,6 +1,6 @@
 {
 	"extends": [
-		"@abhijithvijayan/eslint-config/typescript",
+		"@abhijithvijayan/eslint-config",
 		"@abhijithvijayan/eslint-config/react"
 	],
 	"rules": {
