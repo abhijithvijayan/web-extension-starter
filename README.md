@@ -54,9 +54,14 @@
 | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
 | 49 & later ✔                                                                                  | 52 & later ✔                                                                                     | 36 & later ✔                                                                               | 79 & later ✔                                                                            | Latest ✔                                                                                      | Latest ✔                                                                                   | Latest ✔                                                                                         |
 
-## Demo
+## Used by extensions in production that has over 100,000+ users.
 
-- [abhijithvijayan/kutt-extension](https://github.com/abhijithvijayan/kutt-extension)
+- [kutt-extension](https://chrome.google.com/webstore/detail/kutt/pklakpjfiegjacoppcodencchehlfnpd) in [abhijithvijayan/kutt-extension](https://github.com/abhijithvijayan/kutt-extension)
+- [Virtual backgrounds for Google Meet](https://chrome.google.com/webstore/detail/virtual-backgrounds-for-g/ghlkgnalbbkgpdlodjlackgjehofahoc) in [Coderantine/VirtualBackgroundsForWeb](https://github.com/Coderantine/VirtualBackgroundsForWeb)
+- [doubanIMDb](https://chrome.google.com/webstore/detail/doubanimdb/nfibbjnhkbjlgjaojglmmibdjicidini) in [lisongx/doubanIMDb](https://github.com/lisongx/doubanIMDb)
+- [Mooc Assistant](https://chrome.google.com/webstore/detail/mooc-assistant/oebggekgendmoeedkkdkdcdbmfbfeldc) in [unbyte/mooc-assistant](https://github.com/unbyte/mooc-assistant)
+
+and many more...
 
 ## Use this template
 
