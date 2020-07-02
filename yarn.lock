@@ -6986,7 +6986,7 @@ schema-utils@^1.0.0:
     ajv-errors "^1.0.0"
     ajv-keywords "^3.1.0"
 
-schema-utils@^2.6.1, schema-utils@^2.6.5, schema-utils@^2.6.6:
+schema-utils@^2.6.1, schema-utils@^2.6.5, schema-utils@^2.6.6, schema-utils@^2.7.0:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-2.7.0.tgz#17151f76d8eae67fbbf77960c33c676ad9f4efc7"
   integrity sha512-0ilKFI6QQF5nxDZLFn2dMjvc4hjg/Wkg7rHd3jK6/A4a1Hl9VFdQWvgB1UMGoU94pad1P/8N7fMcEnLnSiju8A==
@@ -8087,18 +8087,18 @@ webpack@^4.43.0:
     watchpack "^1.6.1"
     webpack-sources "^1.4.1"
 
-wext-manifest-loader@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/wext-manifest-loader/-/wext-manifest-loader-2.0.0.tgz#d68a19c9137327f43fe16722aa1de83de3946761"
-  integrity sha512-62UmJXNWHZBYEii8CCkE56p2AnNQ0ZD/JfYMHNfqBdU+RycW24efIh1/yDnTrPFMFMA/xTfZ1L+0/vLHdT3q7A==
+wext-manifest-loader@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/wext-manifest-loader/-/wext-manifest-loader-2.2.0.tgz#fc0f7d93ea4dc16922ec41b336a73293caf51939"
+  integrity sha512-9DXbHcaFke1HFfrn2H8Y958xDsG17NxFSdb7t4rwCIgBQrdqlQJfqA2IkazkX9dhQfNMmqrgaM8lM06IEN9mvA==
   dependencies:
     loader-utils "^2.0.0"
-    schema-utils "^2.6.6"
+    schema-utils "^2.7.0"
 
-wext-manifest-webpack-plugin@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/wext-manifest-webpack-plugin/-/wext-manifest-webpack-plugin-1.1.1.tgz#0c728fbe46b3f554e724aaedbaadb3a0d6af4e08"
-  integrity sha512-Z7WNjqV5PUt11UxSb0V9+j6b7WOrKSfJ7yDg5Ave/M+sdlwkfcwHn2U/mSAdJDHCroaywqz87kZZ/mRG02yPMQ==
+wext-manifest-webpack-plugin@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/wext-manifest-webpack-plugin/-/wext-manifest-webpack-plugin-1.2.1.tgz#80723fdc41d2104d41d408b3496ff74719b0fc66"
+  integrity sha512-NvyNpyhCxMa5aHzJyWcH2RBKIBEoZkb+CFvIk2Pg4QPSvTIUXpPXsiYrtUf5ghJh/DUorPoijwzNFi6agSl4bg==
   dependencies:
     emoji-log "^1.0.2"
 
