@@ -1,3 +1,3 @@
-document.body.style.filter = 'invert(1)';
+console.log('helloworld from content script');
 
 export {};
