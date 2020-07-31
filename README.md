@@ -39,7 +39,7 @@
 ## Features
 
 - Cross Browser Support (Web-Extensions API)
-- Browser Taylored Manifest generation
+- Browser Tailored Manifest generation
 - Automatic build on code changes
 - Automatic extension reload on browser
 - Auto packs browser specific build files
