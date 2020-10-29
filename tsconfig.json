@@ -16,6 +16,6 @@
 	},
 	"include": [
 		"source",
-		"webpack.config.ts"
+		"webpack.config.js"
 	]
 }
