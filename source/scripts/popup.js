@@ -1,6 +1,8 @@
 import 'emoji-log';
 import browser from 'webextension-polyfill';
 
+import '../styles/popup.scss';
+
 function openWebPage(url) {
   return browser.tabs.create({url});
 }

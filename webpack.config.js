@@ -5,9 +5,9 @@ const TerserPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ExtensionReloader = require('webpack-extension-reloader');
 const WextManifestWebpackPlugin = require('wext-manifest-webpack-plugin');
-const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const nodeEnv = process.env.NODE_ENV || 'development';
@@ -58,7 +58,6 @@ module.exports = {
     contentScript: './source/scripts/contentScript.js',
     popup: './source/scripts/popup.js',
     options: './source/scripts/options.js',
-    styles: ['./source/styles/popup.scss', './source/styles/options.scss'],
   },
 
   output: {
@@ -100,14 +99,8 @@ module.exports = {
         test: /\.scss$/,
         use: [
           {
-            loader: 'file-loader',
-            options: {
-              name: '[name].css',
-              context: './source/styles/',
-              outputPath: 'css/',
-            },
+            loader: MiniCssExtractPlugin.loader, // It creates a CSS file per JS file which contains CSS
           },
-          'extract-loader',
           {
             loader: 'css-loader',
             options: {
@@ -135,8 +128,6 @@ module.exports = {
     new WextManifestWebpackPlugin(),
     // Generate sourcemaps
     new webpack.SourceMapDevToolPlugin({filename: false}),
-    // Remove style entries js bundle
-    new FixStyleOnlyEntriesPlugin({silent: true}),
     new webpack.EnvironmentPlugin(['NODE_ENV', 'TARGET_BROWSER']),
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: [
@@ -149,15 +140,19 @@ module.exports = {
       cleanStaleWebpackAssets: false,
       verbose: true,
     }),
+    // write css file(s) to build folder
+    new MiniCssExtractPlugin({filename: 'css/[name].css'}),
     new HtmlWebpackPlugin({
       template: 'source/options.html',
-      // inject: false,
+      inject: 'body',
+      hash: true,
       chunks: ['options'],
       filename: 'options.html',
     }),
     new HtmlWebpackPlugin({
       template: 'source/popup.html',
-      // inject: false,
+      inject: 'body',
+      hash: true,
       chunks: ['popup'],
       filename: 'popup.html',
     }),
