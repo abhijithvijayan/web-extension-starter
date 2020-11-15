@@ -1,6 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-const ZipPlugin = require('zip-webpack-plugin');
+const FilemanagerPlugin = require('filemanager-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -192,10 +192,19 @@ module.exports = {
           preset: ['default', {discardComments: {removeAll: true}}],
         },
       }),
-      new ZipPlugin({
-        path: destPath,
-        extension: `${getExtensionFileType(targetBrowser)}`,
-        filename: `${targetBrowser}`,
+      new FilemanagerPlugin({
+        events: {
+          onEnd: {
+            archive: [
+              {
+                format: 'zip',
+                source: path.join(destPath, targetBrowser),
+                destination: `${path.join(destPath, targetBrowser)}.${getExtensionFileType(targetBrowser)}`,
+                options: {zlib: {level: 6}},
+              },
+            ],
+          },
+        },
       }),
     ],
   },
