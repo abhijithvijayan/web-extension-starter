@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import './styles.scss';
 
@@ -7,12 +7,12 @@ const Options = () => {
     <div>
       <form>
         <p>
-          <label htmlFor="name">Name</label>
+          <label htmlFor="username">Your Name</label>
           <br />
           <input
             type="text"
-            id="name"
-            name="name"
+            id="username"
+            name="username"
             spellCheck="false"
             autoComplete="off"
             required
