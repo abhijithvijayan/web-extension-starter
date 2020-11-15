@@ -109,11 +109,18 @@ module.exports = {
             },
           },
           {
-            loader: 'postcss-loader', // For autoprefixer
+            loader: 'postcss-loader',
             options: {
-              ident: 'postcss',
-              // eslint-disable-next-line global-require
-              plugins: [require('autoprefixer')()],
+              postcssOptions: {
+                plugins: [
+                  [
+                    'autoprefixer',
+                    {
+                      // Options
+                    },
+                  ],
+                ],
+              },
             },
           },
           'resolve-url-loader', // Rewrites relative paths in url() statements
@@ -146,29 +153,33 @@ module.exports = {
       template: path.join(viewsPath, 'popup.html'),
       inject: 'body',
       chunks: ['popup'],
+      hash: true,
       filename: 'popup.html',
     }),
     new HtmlWebpackPlugin({
       template: path.join(viewsPath, 'options.html'),
       inject: 'body',
       chunks: ['options'],
+      hash: true,
       filename: 'options.html',
     }),
     // write css file(s) to build folder
     new MiniCssExtractPlugin({filename: 'css/[name].css'}),
     // copy static assets
-    new CopyWebpackPlugin([{from: 'source/assets', to: 'assets'}]),
+    new CopyWebpackPlugin({
+      patterns: [{from: 'source/assets', to: 'assets'}],
+    }),
     // plugin to enable browser reloading in development mode
     extensionReloaderPlugin,
   ],
 
   optimization: {
+    minimize: true,
     minimizer: [
       new TerserPlugin({
-        cache: true,
         parallel: true,
         terserOptions: {
-          output: {
+          format: {
             comments: false,
           },
         },
