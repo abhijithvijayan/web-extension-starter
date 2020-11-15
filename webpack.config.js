@@ -110,11 +110,18 @@ module.exports = {
             },
           },
           {
-            loader: 'postcss-loader', // For autoprefixer
+            loader: 'postcss-loader',
             options: {
-              ident: 'postcss',
-              // eslint-disable-next-line global-require, @typescript-eslint/no-var-requires
-              plugins: [require('autoprefixer')()],
+              postcssOptions: {
+                plugins: [
+                  [
+                    'autoprefixer',
+                    {
+                      // Options
+                    },
+                  ],
+                ],
+              },
             },
           },
           'resolve-url-loader', // Rewrites relative paths in url() statements
@@ -161,18 +168,20 @@ module.exports = {
     // write css file(s) to build folder
     new MiniCssExtractPlugin({filename: 'css/[name].css'}),
     // copy static assets
-    new CopyWebpackPlugin([{from: 'source/assets', to: 'assets'}]),
+    new CopyWebpackPlugin({
+      patterns: [{from: 'source/assets', to: 'assets'}],
+    }),
     // plugin to enable browser reloading in development mode
     extensionReloaderPlugin,
   ],
 
   optimization: {
+    minimize: true,
     minimizer: [
       new TerserPlugin({
-        cache: true,
         parallel: true,
         terserOptions: {
-          output: {
+          format: {
             comments: false,
           },
         },
