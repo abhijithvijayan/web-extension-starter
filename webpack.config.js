@@ -110,9 +110,16 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              ident: 'postcss',
-              // eslint-disable-next-line global-require
-              plugins: [require('autoprefixer')()],
+              postcssOptions: {
+                plugins: [
+                  [
+                    'autoprefixer',
+                    {
+                      // Options
+                    },
+                  ],
+                ],
+              },
             },
           },
           'resolve-url-loader',
@@ -156,17 +163,21 @@ module.exports = {
       chunks: ['popup'],
       filename: 'popup.html',
     }),
-    new CopyWebpackPlugin([{from: 'source/assets', to: 'assets'}]),
+    // copy static assets
+    new CopyWebpackPlugin({
+      patterns: [{from: 'source/assets', to: 'assets'}],
+    }),
+    // plugin to enable browser reloading in development mode
     extensionReloaderPlugin,
   ],
 
   optimization: {
+    minimize: true,
     minimizer: [
       new TerserPlugin({
-        cache: true,
         parallel: true,
         terserOptions: {
-          output: {
+          format: {
             comments: false,
           },
         },
