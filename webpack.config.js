@@ -148,12 +148,14 @@ module.exports = {
       template: path.join(viewsPath, 'popup.html'),
       inject: 'body',
       chunks: ['popup'],
+      hash: true,
       filename: 'popup.html',
     }),
     new HtmlWebpackPlugin({
       template: path.join(viewsPath, 'options.html'),
       inject: 'body',
       chunks: ['options'],
+      hash: true,
       filename: 'options.html',
     }),
     // write css file(s) to build folder
