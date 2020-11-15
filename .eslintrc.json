@@ -1,10 +1,25 @@
 {
+  "extends": [
+    "@abhijithvijayan/eslint-config",
+    "@abhijithvijayan/eslint-config/node"
+  ],
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-console": "off",
+    "no-extend-native": "off",
+    "class-methods-use-this": "off",
+    "max-classes-per-file": "off",
+    "node/no-unpublished-require": "off",
+    "node/no-missing-import": "off",
+    "node/no-unpublished-import": "off",
+    "node/no-unsupported-features/es-syntax": ["error", {
+      "ignores": ["modules"]
+    }]
+  },
   "env": {
     "browser": true,
     "webextensions": true
-  },
-  "extends": [
-    "@abhijithvijayan/eslint-config"
-  ],
-  "rules": {}
+  }
 }
