@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import {browser, Tabs} from 'webextension-polyfill-ts';
 
 import './styles.scss';
