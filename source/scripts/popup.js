@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     url,
   });
 
-  // eslint-disable-next-line no-console
   console.emoji('🦄', response);
 
   document.getElementById('github__button').addEventListener('click', () => {
