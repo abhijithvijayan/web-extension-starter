@@ -195,7 +195,11 @@ module.exports = {
               {
                 format: 'zip',
                 source: path.join(__dirname, 'extension', targetBrowser),
-                destination: `${path.join(__dirname, 'extension', targetBrowser)}.${getExtensionFileType(targetBrowser)}`,
+                destination: `${path.join(
+                  __dirname,
+                  'extension',
+                  targetBrowser
+                )}.${getExtensionFileType(targetBrowser)}`,
                 options: {zlib: {level: 6}},
               },
             ],
