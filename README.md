@@ -47,6 +47,7 @@
 - ES6 modules support
 - React UI Library by default
 - Smart reload
+- Automatic Publishing
 
 ## Browser Support
 
@@ -129,6 +130,25 @@ Then run the following:
 Note: By default the `manifest.json` is set with version `0.0.0`. The webpack loader will update the version in the build with that of the `package.json` version. In order to release a new version, update version in `package.json` and run script.
 
 If you don't want to use `package.json` version, you can disable the option [here](https://github.com/abhijithvijayan/web-extension-starter/blob/e10158c4a49948dea9fdca06592876d9ca04e028/webpack.config.js#L79).
+
+### Automatic Publishing
+
+- To publish your extention automatically, you first have to set some enviroment variables.
+
+  - ### Chrome
+
+    - Set `EXTENSION_ID` as the Chrome Extention ID.
+    - Set `CLIENT_ID` as the Chrome Dev Client ID.
+    - Set `CLIENT_SECRET` as the Chrome Dev Client Secret (If Needed).
+    - Set `REFRESH_TOKEN` as the Chrome Dev Client Refresh Token.
+    - You can find how to get your Client ID and Refresh Token [here](https://github.com/fregante/chrome-webstore-upload/blob/main/How%20to%20generate%20Google%20API%20keys.md).
+
+  - ### Firefox
+
+    - Set `WEB_EXT_API_KEY` as the Firefox Web Extention API Key.
+    - Set `WEB_EXT_API_SECRET` as the Firefox Web Extention API Secret.
+
+- Now you can publish your application through either `yarn run publish:chrome` for Chrome or `yarn run publish:firefox` for Firefox (or `yarn run publish` for both)!
 
 ### Generating browser specific manifest.json
 
