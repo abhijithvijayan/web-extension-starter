@@ -110,7 +110,7 @@ Then run the following:
   - Go to the browser address bar and type `chrome://extensions`
   - Check the `Developer Mode` button to enable it.
   - Click on the `Load Unpacked Extension…` button.
-  - Select your extension’s extracted directory.
+  - Select your browsers folder in `extension/`.
 
 - ### Firefox
 
