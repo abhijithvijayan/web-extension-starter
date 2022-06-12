@@ -56,11 +56,11 @@
 
 ## Used by extensions in production that has over 100,000+ users.
 
-- [kutt-extension](https://chrome.google.com/webstore/detail/kutt/pklakpjfiegjacoppcodencchehlfnpd) in [abhijithvijayan/kutt-extension](https://github.com/abhijithvijayan/kutt-extension)
 - [daily.dev](https://daily.dev) in [daily.dev extension](https://r.daily.dev/get)
+- [Jiffy Reader](https://chrome.google.com/webstore/detail/jiffy-reader/lljedihjnnjjefafchaljkhbpfhfkdic) in [ansh/jiffyreader.com](https://github.com/ansh/jiffyreader.com)
+- [kutt-extension](https://chrome.google.com/webstore/detail/kutt/pklakpjfiegjacoppcodencchehlfnpd) in [abhijithvijayan/kutt-extension](https://github.com/abhijithvijayan/kutt-extension)
 - [doubanIMDb](https://chrome.google.com/webstore/detail/doubanimdb/nfibbjnhkbjlgjaojglmmibdjicidini) in [lisongx/doubanIMDb](https://github.com/lisongx/doubanIMDb)
 - [Mooc Assistant](https://chrome.google.com/webstore/detail/mooc-assistant/oebggekgendmoeedkkdkdcdbmfbfeldc) in [unbyte/mooc-assistant](https://github.com/unbyte/mooc-assistant)
-- [Virtual backgrounds for Google Meet](https://chrome.google.com/webstore/detail/virtual-backgrounds-for-g/ghlkgnalbbkgpdlodjlackgjehofahoc) in [Coderantine/VirtualBackgroundsForWeb](https://github.com/Coderantine/VirtualBackgroundsForWeb)
 - ArtiPub in [crawlab-team/artipub](https://github.com/crawlab-team/artipub/tree/master/extensions)
 
 and many more...
