@@ -1,7 +1,7 @@
 {
-  "manifest_version": "0.1.0",
+  "manifest_version": 2,
   "name": "Encora Tools",
-  "version": "0.0.1",
+  "version": "0.1.0",
 
   "icons": {
         "48": "assets/icons/tools-48.png",

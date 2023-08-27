@@ -35,9 +35,13 @@ export default class TradeFinderRow {
     }
 
     get open(): boolean {
-        return this.cells[0]
-            .querySelector("span")!
-            .innerText.includes("Open to trades");
+        let badge = this.cells[0].querySelector("span");
+
+        if (!badge) {
+            return false;
+        }
+
+        return badge.innerText.includes("Open to trades");
     }
 
     get count(): number {

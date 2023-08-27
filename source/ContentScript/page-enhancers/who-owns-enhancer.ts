@@ -52,7 +52,7 @@ export default class WhoOwnsEnhancer {
         Settings.set("hideNonOpenRows", true);
 
         links
-            .filter((link) => link!.trader!.open === false)
+            .filter((link) => !link.trader || link!.trader!.open === false)
             .forEach((link) => link!.hide());
     }
 

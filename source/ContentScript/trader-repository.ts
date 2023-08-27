@@ -1,5 +1,6 @@
 import { browser } from "webextension-polyfill-ts";
 import Trader from "./trader";
+import Settings from "./settings";
 
 export default class TraderRepository {
     page: Document;
@@ -17,6 +18,18 @@ export default class TraderRepository {
         let traders = await this.loadTradersFromStorage();
 
         return new TraderRepository(traders!);
+    }
+
+    /**
+     * Refreshes the global storage if necessary.
+     */
+    static async refreshIfNecessary() {
+        if (
+            !(await this.hasTradersInStorage()) ||
+            (await this.shouldBeRefreshed())
+        ) {
+            await this.refreshGlobalTradersStorage();
+        }
     }
 
     /**
@@ -60,6 +73,8 @@ export default class TraderRepository {
      * from the Encora website and stores them in the global storage.
      */
     static async refreshGlobalTradersStorage() {
+        await Settings.set("refresh", false);
+
         let [wantsTraders, ownsTraders] = await Promise.all([
             this.fetchTradersWhoWantMyItems(),
             this.fetchTradersWhoOwnMyWants(),
@@ -69,7 +84,12 @@ export default class TraderRepository {
             (trader) => trader.toJSON()
         );
 
+        if (traders.length === 0) {
+            return;
+        }
+
         browser.storage.local.set({ traders: traders });
+        await Settings.set("lastUpdated", new Date().toString());
     }
 
     /**
@@ -79,6 +99,27 @@ export default class TraderRepository {
         let storage = await browser.storage.local.get("traders");
 
         return storage.traders != null;
+    }
+
+    /**
+     * Checks if the global storage should be refreshed.
+     */
+    static async shouldBeRefreshed(): Promise<boolean> {
+        let lastUpdated = await Settings.get("lastUpdated");
+
+        if (lastUpdated == null) {
+            return true;
+        }
+
+        let now = new Date();
+        let lastUpdatedDate = new Date(lastUpdated);
+
+        // Refresh if the last update was more than 5 minutes ago.
+        if (now.getTime() - lastUpdatedDate.getTime() > 1000 * 60 * 5) {
+            return true;
+        }
+
+        return false;
     }
 
     /**

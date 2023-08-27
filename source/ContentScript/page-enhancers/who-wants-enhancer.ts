@@ -9,8 +9,6 @@ export default class WhoWantsEnhancer {
 
         let b = Array.from(bs).find((b) => b.innerText.trim() === "WANTERS:")!;
 
-        console.log(bs);
-
         let toggle = Toggle.create();
         toggle.element.style.marginBottom = "1.5em";
 
