@@ -35,13 +35,6 @@
   "__chrome__minimum_chrome_version": "49",
   "__opera__minimum_opera_version": "36",
 
-  "background": {
-    "scripts": [
-      "js/background.bundle.js"
-    ],
-    "__chrome|opera__persistent": false
-  },
-
   "content_scripts": [{
     "matches": [
       "*://*.encora.it/*"
