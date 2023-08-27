@@ -43,7 +43,7 @@
 
   "content_scripts": [{
     "matches": [
-      "*://*.encora.it/*"
+      "https://encora.it/*"
     ],
     "js": [
       "js/contentScript.bundle.js"
