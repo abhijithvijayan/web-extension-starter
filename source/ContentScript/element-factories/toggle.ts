@@ -42,6 +42,8 @@ export default class Toggle {
 
         this.element.querySelector("button")!.classList.remove("bg-slate-200");
         this.element.querySelector("button")!.classList.add("bg-green-600");
+
+        this.on = true;
     }
 
     switchOff() {
@@ -57,6 +59,8 @@ export default class Toggle {
 
         this.element.querySelector("button")!.classList.remove("bg-green-600");
         this.element.querySelector("button")!.classList.add("bg-slate-200");
+
+        this.on = false;
     }
 
     static create(): Toggle {
