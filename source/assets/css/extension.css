@@ -1,0 +1,14 @@
+.et-badge {
+    background-color: #e2e8f0;
+    color: #334155;
+    font-size: 0.6em;
+    border-radius: 5px;
+    padding: 2px 6px;
+    margin-left: 5px;
+}
+
+.et-badge:hover {
+    background-color: #cbd5e1;
+    color: #020617;
+    text-decoration: none;
+}

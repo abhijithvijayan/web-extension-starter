@@ -1,3 +1,10 @@
-console.log('helloworld from content script');
+import WhoOwnsEnhancer from "./page-enhancers/who-owns-enhancer";
+import WhoWantsEnhancer from "./page-enhancers/who-wants-enhancer";
 
-export {};
+if (window.location.href.includes("who-owns.php")) {
+    WhoOwnsEnhancer.enhance(document);
+}
+
+if (window.location.href.includes("who-wants.php")) {
+    WhoWantsEnhancer.enhance(document);
+}

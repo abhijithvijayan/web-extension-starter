@@ -1,30 +1,27 @@
 {
   "manifest_version": 2,
-  "name": "Sample WebExtension",
-  "version": "0.0.0",
+  "name": "Encora Tools",
+  "version": "0.0.1",
 
   "icons": {
-    "16": "assets/icons/favicon-16.png",
-    "32": "assets/icons/favicon-32.png",
-    "48": "assets/icons/favicon-48.png",
-    "128": "assets/icons/favicon-128.png"
+        "48": "assets/icons/tools-48.png",
+        "96": "assets/icons/tools-96.png"
   },
-  "description": "Sample description",
-  "homepage_url": "https://github.com/abhijithvijayan/web-extension-starter",
-  "short_name": "Sample Name",
+  "description": "Adds extra features to the Encora trading site.",
+  "homepage_url": "https://musicalbean.carrd.co",
+  "short_name": "Encora Tools",
 
   "permissions": [
     "activeTab",
     "storage",
-    "http://*/*",
-    "https://*/*"
+    "webRequest"
   ],
 
   "content_security_policy": "script-src 'self'; object-src 'self'",
 
-  "__chrome|firefox__author": "abhijithvijayan",
+  "__chrome|firefox__author": "musicalbean",
   "__opera__developer": {
-    "name": "abhijithvijayan"
+    "name": "musicalbean"
   },
 
   "__firefox__applications": {
@@ -36,26 +33,6 @@
   "__chrome__minimum_chrome_version": "49",
   "__opera__minimum_opera_version": "36",
 
-  "browser_action": {
-    "default_popup": "popup.html",
-    "default_icon": {
-      "16": "assets/icons/favicon-16.png",
-      "32": "assets/icons/favicon-32.png",
-      "48": "assets/icons/favicon-48.png",
-      "128": "assets/icons/favicon-128.png"
-    },
-    "default_title": "tiny title",
-    "__chrome|opera__chrome_style": false,
-    "__firefox__browser_style": false
-  },
-
-  "__chrome|opera__options_page": "options.html",
-  "options_ui": {
-    "page": "options.html",
-    "open_in_tab": true,
-    "__chrome__chrome_style": false
-  },
-
   "background": {
     "scripts": [
       "js/background.bundle.js"
@@ -65,11 +42,13 @@
 
   "content_scripts": [{
     "matches": [
-      "http://*/*",
-      "https://*/*"
+      "*://*.encora.it/*"
     ],
     "js": [
       "js/contentScript.bundle.js"
+    ],
+    "css": [
+      "assets/css/extension.css"
     ]
   }]
 }
