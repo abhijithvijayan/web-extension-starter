@@ -35,10 +35,15 @@ export default class TraderRepository {
     /**
      * Fetches the traders who want my items from the Encora website.
      */
-    static async fetchTradersWhoWantMyItems(): Promise<Trader[]> {
+    static async fetchTradersWhoWantMyItems(): Promise<Trader[] | null> {
         const response = await fetch(
             "https://encora.it/profile/trade_finder_theirs.php"
         );
+
+        if (response.status !== 200) {
+            return null;
+        }
+
         let text = await response.text();
         let page = new DOMParser().parseFromString(text, "text/html");
 
@@ -53,10 +58,15 @@ export default class TraderRepository {
     /**
      * Fetches the traders who own my wants from the Encora website.
      */
-    static async fetchTradersWhoOwnMyWants(): Promise<Trader[]> {
+    static async fetchTradersWhoOwnMyWants(): Promise<Trader[] | null> {
         const response = await fetch(
             "https://encora.it/profile/trade_finder.php"
         );
+
+        if (response.status !== 200) {
+            return null;
+        }
+
         let text = await response.text();
         let page = new DOMParser().parseFromString(text, "text/html");
 
@@ -73,12 +83,14 @@ export default class TraderRepository {
      * from the Encora website and stores them in the global storage.
      */
     static async refreshGlobalTradersStorage() {
-        await Settings.set("refresh", false);
-
         let [wantsTraders, ownsTraders] = await Promise.all([
             this.fetchTradersWhoWantMyItems(),
             this.fetchTradersWhoOwnMyWants(),
         ]);
+
+        if (wantsTraders == null || ownsTraders == null) {
+            return;
+        }
 
         let traders = Trader.mergeLists(wantsTraders, ownsTraders).map(
             (trader) => trader.toJSON()
