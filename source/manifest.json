@@ -1,7 +1,7 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Encora Tools",
-  "version": "0.2.2",
+  "version": "0.2.3",
 
   "icons": {
         "32": "assets/icons/tools-32.png",
@@ -19,7 +19,13 @@
     "webRequest"
   ],
 
-  "content_security_policy": "script-src 'self'; object-src 'self'",
+  "host_permissions": [
+    "https://encora.it/"
+  ],
+
+  "content_security_policy": {
+    "extension_pages": "default-src 'self'"
+  },
 
   "__chrome|firefox__author": "musicalbean",
   "__opera__developer": {
