@@ -4,8 +4,11 @@
   "version": "0.1.0",
 
   "icons": {
+        "32": "assets/icons/tools-32.png",
         "48": "assets/icons/tools-48.png",
-        "96": "assets/icons/tools-96.png"
+        "64": "assets/icons/tools-64.png",
+        "96": "assets/icons/tools-96.png",
+        "128": "assets/icons/tools-128.png"
   },
   "description": "Adds extra features to the Encora trading site.",
   "homepage_url": "https://encoratools.carrd.co/",
@@ -23,7 +26,7 @@
     "name": "musicalbean"
   },
 
-  "__firefox__applications": {
+  "__firefox__browser_specific_settings": {
     "gecko": {
       "id": "{e109d0ff-7af6-461c-a246-97ec01732146}"
     }
