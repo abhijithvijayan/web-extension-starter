@@ -17,7 +17,15 @@ export default class OwnsColumn {
         let a = document.createElement("a");
         a.target = "_blank";
         a.href = trader.ownsList ?? "#";
-        a.innerHTML = `${count} <i class="fad fa-arrow-up-right-from-square"></i>`;
+
+        let span = document.createElement("span");
+        span.innerText = count.toString() + " ";
+
+        let i = document.createElement("i");
+        i.classList.add("fad", "fa-arrow-down-left-from-square");
+
+        a.appendChild(span);
+        a.appendChild(i);
 
         td.appendChild(a);
 

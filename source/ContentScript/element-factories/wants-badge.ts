@@ -11,7 +11,20 @@ export default class WantsBadge {
 
         let recordings = trader.wantsCount === 1 ? "recording" : "recordings";
 
-        badge.innerHTML = `Wants <strong style="font-weight: semibold; color: #0f172a;">${trader.wantsCount} ${recordings}</strong> that I own`;
+        let span1 = document.createElement("span");
+        span1.innerText = "Wants ";
+
+        let strong = document.createElement("strong");
+        strong.style.fontWeight = "semibold";
+        strong.style.color = "#0f172a";
+        strong.innerText = `${trader.wantsCount} ${recordings}`;
+
+        let span2 = document.createElement("span");
+        span2.innerText = " that I own";
+
+        badge.appendChild(span1);
+        badge.appendChild(strong);
+        badge.appendChild(span2);
 
         return badge;
     }
