@@ -1,10 +1,4 @@
-interface RowData {
-    username: string;
-    profile: string;
-    open: boolean;
-    count: number;
-    list: string | null;
-}
+import TradeFinderRow from "./page-elements/trade-finder-row";
 
 export default class Trader {
     constructor(
@@ -18,52 +12,10 @@ export default class Trader {
     ) {}
 
     /**
-     * Get the underlying trader data from a row in a "Trade finder" table.
-     */
-    static parseRow(row: HTMLTableRowElement): RowData | null {
-        let cells = row.querySelectorAll("td");
-
-        if (cells.length < 2) {
-            return null;
-        }
-
-        let profileLink = cells[0].querySelector("a");
-
-        if (!profileLink) {
-            return null;
-        }
-
-        let username =
-            profileLink.querySelector("strong")?.innerText ??
-            profileLink.innerText;
-        let profile = profileLink.href;
-
-        let open =
-            cells[0]
-                .querySelector("span")
-                ?.innerText.includes("Open to trades") ?? false;
-
-        let wantsLink = cells[1].querySelector("a");
-
-        let count = wantsLink
-            ? parseInt(wantsLink.innerText.match(/\d+/)![0])
-            : 0;
-        let list = wantsLink ? wantsLink.href : null;
-
-        return {
-            username,
-            profile,
-            open,
-            count,
-            list,
-        };
-    }
-
-    /**
      * Create a Trader from a row in a "Trade finder wants" table.
      */
     static fromWantsRow(row: HTMLTableRowElement): Trader | null {
-        let data = Trader.parseRow(row);
+        let data = TradeFinderRow.parse(row);
 
         if (data === null) {
             return null;
@@ -84,7 +36,7 @@ export default class Trader {
      * Create a Trader from a row in a "Trade finder owns" table.
      */
     static fromOwnsRow(row: HTMLTableRowElement): Trader | null {
-        let data = Trader.parseRow(row);
+        let data = TradeFinderRow.parse(row);
 
         if (data === null) {
             return null;

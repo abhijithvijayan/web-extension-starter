@@ -29,8 +29,8 @@ export default class TraderRepository {
         let text = await response.text();
         let page = new DOMParser().parseFromString(text, "text/html");
 
-        let table = page.querySelector("table")!;
-        let rows = table.querySelectorAll("tr");
+        let tbody = page.querySelector("table tbody")!;
+        let rows = tbody.querySelectorAll("tr");
 
         return Array.from(rows)
             .map((row) => Trader.fromWantsRow(row as HTMLTableRowElement))
@@ -47,8 +47,8 @@ export default class TraderRepository {
         let text = await response.text();
         let page = new DOMParser().parseFromString(text, "text/html");
 
-        let table = page.querySelector("table")!;
-        let rows = table.querySelectorAll("tr");
+        let tbody = page.querySelector("table tbody")!;
+        let rows = tbody.querySelectorAll("tr");
 
         return Array.from(rows)
             .map((row) => Trader.fromOwnsRow(row as HTMLTableRowElement))
