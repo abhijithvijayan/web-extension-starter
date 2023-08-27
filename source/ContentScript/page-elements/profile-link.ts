@@ -28,6 +28,16 @@ export default class ProfileLink {
             : this.element;
     }
 
+    get open(): boolean {
+        if (this.element.nextElementSibling?.tagName !== "SPAN") {
+            return false;
+        }
+
+        return (<HTMLSpanElement>(
+            this.element.nextElementSibling
+        )).innerText.includes("Open to trades");
+    }
+
     addOwnsBadge() {
         let trader = this.trader;
 
@@ -75,5 +85,50 @@ export default class ProfileLink {
                     traderRepository
                 )
         );
+    }
+
+    hide() {
+        this.element.style.display = "none";
+
+        // If the next element is text, hide it too.
+        if (this.element.nextElementSibling?.nodeType === Node.TEXT_NODE) {
+            (<HTMLSpanElement>this.element.nextElementSibling).style.display =
+                "none";
+        }
+
+        let nextElement = this.element.nextElementSibling;
+
+        if (nextElement?.tagName === "SPAN") {
+            (<HTMLSpanElement>nextElement).style.display = "none";
+            nextElement = nextElement.nextElementSibling;
+        }
+
+        if (nextElement?.tagName === "A") {
+            (<HTMLAnchorElement>nextElement).style.display = "none";
+            nextElement = nextElement.nextElementSibling;
+        }
+
+        if (nextElement?.tagName === "BR") {
+            (<HTMLSpanElement>nextElement).style.display = "none";
+        }
+    }
+
+    show() {
+        this.element.style.display = "";
+        let nextElement = this.element.nextElementSibling;
+
+        if (nextElement?.tagName === "SPAN") {
+            (<HTMLSpanElement>nextElement).style.display = "";
+            nextElement = nextElement.nextElementSibling;
+        }
+
+        if (nextElement?.tagName === "A") {
+            (<HTMLAnchorElement>nextElement).style.display = "";
+            nextElement = nextElement.nextElementSibling;
+        }
+
+        if (nextElement?.tagName === "BR") {
+            (<HTMLSpanElement>nextElement).style.display = "";
+        }
     }
 }

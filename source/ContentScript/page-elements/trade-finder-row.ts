@@ -85,4 +85,12 @@ export default class TradeFinderRow {
 
         this.row.appendChild(td);
     }
+
+    hide() {
+        this.row.style.display = "none";
+    }
+
+    show() {
+        this.row.style.display = "";
+    }
 }
