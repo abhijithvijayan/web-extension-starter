@@ -1,13 +1,13 @@
 {
-  "name": "web-extension-starter",
-  "version": "2.0.0",
-  "description": "Web extension starter using react and typescript",
+  "name": "encora-tools",
+  "version": "0.1.0",
+  "description": "Adds extra features to the Encora trading site.",
   "private": true,
-  "repository": "https://github.com/abhijithvijayan/web-extension-starter.git",
+  "repository": "https://github.com/musicalbean/encora-tools.git",
   "author": {
-    "name": "abhijithvijayan",
-    "email": "email@abhijithvijayan.in",
-    "url": "https://abhijithvijayan.in"
+    "name": "musicalbean",
+    "email": "musicalbean@proton.me",
+    "url": "https://musicalbean.carrd.co"
   },
   "license": "MIT",
   "engines": {

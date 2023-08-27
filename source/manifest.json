@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": "0.1.0",
   "name": "Encora Tools",
   "version": "0.0.1",
 
@@ -12,7 +12,6 @@
   "short_name": "Encora Tools",
 
   "permissions": [
-    "activeTab",
     "storage",
     "webRequest"
   ],
