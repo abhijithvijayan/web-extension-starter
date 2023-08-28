@@ -22,7 +22,7 @@ export default class OwnsColumn {
         span.innerText = count.toString() + " ";
 
         let i = document.createElement("i");
-        i.classList.add("fad", "fa-arrow-down-left-from-square");
+        i.classList.add("fad", "fa-arrow-up-right-from-square");
 
         a.appendChild(span);
         a.appendChild(i);

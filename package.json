@@ -1,6 +1,6 @@
 {
   "name": "encora-tools",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Adds extra features to the Encora trading site.",
   "private": true,
   "repository": "https://github.com/musicalbean/encora-tools.git",
