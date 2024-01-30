@@ -78,30 +78,29 @@ curl -fsSL https://github.com/abhijithvijayan/web-extension-starter/archive/reac
 Ensure you have
 
 - [Node.js](https://nodejs.org) 10 or later installed
-- [Yarn](https://yarnpkg.com) v1 or v2 installed
 
 Then run the following:
 
-- `yarn install` to install dependencies.
-- `yarn run dev:chrome` to start the development server for chrome extension
-- `yarn run dev:firefox` to start the development server for firefox addon
-- `yarn run dev:opera` to start the development server for opera extension
-- `yarn run build:chrome` to build chrome extension
-- `yarn run build:firefox` to build firefox addon
-- `yarn run build:opera` to build opera extension
-- `yarn run build` builds and packs extensions all at once to extension/ directory
+- `npm install` to install dependencies.
+- `npm run dev:chrome` to start the development server for chrome extension
+- `npm run dev:firefox` to start the development server for firefox addon
+- `npm run dev:opera` to start the development server for opera extension
+- `npm run build:chrome` to build chrome extension
+- `npm run build:firefox` to build firefox addon
+- `npm run build:opera` to build opera extension
+- `npm run build` builds and packs extensions all at once to extension/ directory
 
 ### Development
 
-- `yarn install` to install dependencies.
+- `npm install` to install dependencies.
 - To watch file changes in development
 
   - Chrome
-    - `yarn run dev:chrome`
+    - `npm run dev:chrome`
   - Firefox
-    - `yarn run dev:firefox`
+    - `npm run dev:firefox`
   - Opera
-    - `yarn run dev:opera`
+    - `npm run dev:opera`
 
 - **Load extension in browser**
 
@@ -124,7 +123,7 @@ Then run the following:
 
 ### Production
 
-- `yarn run build` builds the extension for all the browsers to `extension/BROWSER` directory respectively.
+- `npm run build` builds the extension for all the browsers to `extension/BROWSER` directory respectively.
 
 Note: By default the `manifest.json` is set with version `0.0.0`. The webpack loader will update the version in the build with that of the `package.json` version. In order to release a new version, update version in `package.json` and run script.
 
