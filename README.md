@@ -1,5 +1,6 @@
 <h1 align="center">🚀 web-extension-starter</h1>
 <p align="center">Web Extension starter to build "Write Once Run on Any Browser" extension</p>
+<p align="center">Update: Rewrite in progress to support manifest v3 / Vite.js: https://github.com/abhijithvijayan/web-extension-starter/tree/vite-rewrite</p>
 <div align="center">
   <a href="https://travis-ci.com/abhijithvijayan/web-extension-starter">
     <img src="https://travis-ci.com/abhijithvijayan/web-extension-starter.svg?branch=react-typescript" alt="Travis Build" />
@@ -28,7 +29,7 @@
 </p>
 <hr />
 
-Update: Rewrite to use Vite + React in progress.
+Update: Rewrite to use Vite + React in progress in https://github.com/abhijithvijayan/web-extension-starter/tree/vite-rewrite branch
 
 ❤️ it? ⭐️ it on [GitHub](https://github.com/abhijithvijayan/web-extension-starter) or [Tweet](https://twitter.com/intent/tweet?text=Check%20out%20web-extension-starter%21%20by%20%40_abhijithv%0A%0AWeb%20Extension%20starter%20to%20build%20%22Write%20Once%20Run%20on%20Any%20Browser%22%20extension.%20https%3A%2F%2Fgithub.com%2Fabhijithvijayan%2Fweb-extension-starter%0A%0A%23javascript%20%23react%20%23typescript%20%23sass%20%23webextension%20%23chrome%20%23firefox%20%23opera) about it.
 
