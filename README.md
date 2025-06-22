@@ -2,10 +2,6 @@
 <p align="center">Web Extension starter to build "Write Once Run on Any Browser" extension</p>
 <p align="center">Update: Rewrite in progress to support manifest v3 / Vite.js: https://github.com/abhijithvijayan/web-extension-starter/tree/vite-rewrite</p>
 <div align="center">
-  <a href="https://travis-ci.com/abhijithvijayan/web-extension-starter">
-    <img src="https://travis-ci.com/abhijithvijayan/web-extension-starter.svg?branch=react-typescript" alt="Travis Build" />
-  </a>
-  </a>
   <a href="https://david-dm.org/abhijithvijayan/web-extension-starter">
     <img src="https://img.shields.io/david/abhijithvijayan/web-extension-starter.svg?colorB=orange" alt="DEPENDENCIES" />
   </a>
