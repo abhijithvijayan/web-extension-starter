@@ -1,6 +1,5 @@
 {
-  "__chrome__manifest_version": 3,
-  "__firefox__manifest_version": 2,
+  "manifest_version": 3,
   "name": "Sample WebExtension",
   "version": "0.0.0",
 
@@ -14,12 +13,12 @@
   "homepage_url": "https://github.com/abhijithvijayan/web-extension-starter",
   "short_name": "Sample Name",
 
-  "__chrome__permissions": [
+  "permissions": [
     "activeTab",
     "storage"
   ],
 
-  "__chrome__optional_permissions": [],
+  "optional_permissions": [],
 
   "__chrome__host_permissions": [],
 
@@ -28,29 +27,27 @@
     "https://*/*"
   ],
 
-  "__firefox__permissions": [
-    "activeTab",
-    "storage",
+  "__firefox__optional_host_permissions": [
     "http://*/*",
     "https://*/*"
   ],
 
-  "__chrome__content_security_policy": {
+  "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self';"
   },
-  "__firefox__content_security_policy": "script-src 'self'; object-src 'self'",
 
   "__chrome|firefox__author": "abhijithvijayan",
 
-  "__firefox__applications": {
+  "__firefox__browser_specific_settings": {
     "gecko": {
-      "id": "{754FB1AD-CC3B-4856-B6A0-7786F8CA9D17}"
+      "id": "{754FB1AD-CC3B-4856-B6A0-7786F8CA9D17}",
+      "strict_min_version": "109.0"
     }
   },
 
   "__chrome__minimum_chrome_version": "88",
 
-  "__chrome__action": {
+  "action": {
     "default_popup": "Popup/popup.html",
     "default_icon": {
       "16": "assets/icons/favicon-16.png",
@@ -59,18 +56,6 @@
       "128": "assets/icons/favicon-128.png"
     },
     "default_title": "tiny title"
-  },
-
-  "__firefox__browser_action": {
-    "default_popup": "Popup/popup.html",
-    "default_icon": {
-      "16": "assets/icons/favicon-16.png",
-      "32": "assets/icons/favicon-32.png",
-      "48": "assets/icons/favicon-48.png",
-      "128": "assets/icons/favicon-128.png"
-    },
-    "default_title": "tiny title",
-    "browser_style": false
   },
 
   "__chrome__options_page": "Options/options.html",
@@ -82,9 +67,8 @@
   "background": {
     "__chrome__service_worker": "assets/js/background.bundle.js",
     "__chrome__type": "module",
-    "__firefox__scripts": [
-      "assets/js/background.bundle.js"
-    ]
+    "__firefox__scripts": ["assets/js/background.bundle.js"],
+    "__firefox__type": "module"
   },
 
   "content_scripts": [
@@ -101,14 +85,10 @@
     }
   ],
 
-  "__firefox__web_accessible_resources": [
-    "assets/*"
-  ],
-
-  "__chrome__web_accessible_resources": [
+  "web_accessible_resources": [
     {
-      "resources": [ "assets/*" ],
-      "matches": [ "http://*/*", "https://*/*" ]
+      "resources": ["assets/*"],
+      "matches": ["http://*/*", "https://*/*"]
     }
   ]
 }

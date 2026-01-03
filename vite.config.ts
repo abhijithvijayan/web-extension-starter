@@ -9,14 +9,15 @@ import WextManifest from 'vite-plugin-wext-manifest';
 
 import type {Plugin} from 'vite';
 
-// Custom plugin to build content scripts as IIFE (self-contained, no ES module imports)
-function buildContentScripts(options: {
+// Custom plugin to build scripts as IIFE (self-contained, no ES module imports)
+// Used for scripts that can't use ES modules (e.g., content scripts injected via manifest)
+function buildIIFEScripts(options: {
   scripts: {name: string; entry: string}[];
   outDir: string;
   isDevelopment: boolean;
 }): Plugin {
   return {
-    name: 'build-content-scripts',
+    name: 'build-iife-scripts',
     async writeBundle() {
       for (const script of options.scripts) {
         await build({
@@ -94,7 +95,7 @@ export default defineConfig(({ mode }) => {
 			// delete previous built compressed file
 			clean({
 				targetFiles: [path.resolve(destPath, getExtensionZipFileName())],
-			}),
+			}) as Plugin,
 
 			// Run typescript checker in worker thread
 			checker({
@@ -109,9 +110,9 @@ export default defineConfig(({ mode }) => {
 				usePackageJSONVersion: true,
 			}),
 
-			// Build content scripts as IIFE (no ES module imports)
-			// Content scripts can't use ES modules in manifest-injected scripts
-			buildContentScripts({
+			// Build scripts as IIFE (no ES module imports)
+			// Content scripts can't use ES modules when injected via manifest
+			buildIIFEScripts({
 				scripts: [
 					{
 						name: 'contentScript',
@@ -146,9 +147,10 @@ export default defineConfig(({ mode }) => {
 					// Vite will find the <script> tag inside and bundle it.
 					popup: path.resolve(sourcePath, 'Popup/popup.html'),
 					options: path.resolve(sourcePath, 'Options/options.html'),
-					// Background script (service worker in MV3)
+					// Background script (service worker in Chrome, background script in Firefox)
+					// Both MV3 implementations support ES modules
 					background: path.resolve(sourcePath, 'Background/index.ts'),
-					// Note: contentScript is built separately as IIFE via buildContentScripts plugin
+					// Note: contentScript is built separately as IIFE via buildIIFEScripts plugin
 				},
 
 				output: {
@@ -163,16 +165,11 @@ export default defineConfig(({ mode }) => {
 				},
 			},
 
-			terserOptions: {
-				mangle: true,
-				compress: {
-					drop_console: true,
-					drop_debugger: true,
-				},
-				format: {
-					comments: false,
-				},
-			},
 		},
+
+		// esbuild options - drop console/debugger in production
+		esbuild: mode === 'production' ? {
+			drop: ['console', 'debugger'],
+		} : {},
 	};
 });
