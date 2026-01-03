@@ -108,7 +108,7 @@
   "__chrome__web_accessible_resources": [
     {
       "resources": [ "assets/*" ],
-      "matches": [ "https://*/*" ]
+      "matches": [ "http://*/*", "https://*/*" ]
     }
   ]
 }
