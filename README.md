@@ -43,13 +43,13 @@
 - **Language**: [TypeScript](https://www.typescriptlang.org/) 5.9
 - **Styling**: SCSS with CSS Modules
 - **Linting**: ESLint 9 (flat config) + Prettier
-- **Manifest**: [vite-plugin-wext-manifest](https://github.com/nicholascostadev/vite-plugin-wext-manifest)
+- **Manifest**: [vite-plugin-wext-manifest](https://github.com/abhijithvijayan/vite-plugin-wext-manifest)
 
 ## Browser Support
 
 This starter uses **Manifest V3** for all browsers.
 
-| [![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](/) | [![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](/) | [![Opera](https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png)](/) | [![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png)](/) | [![Brave](https://raw.github.com/alrra/browser-logos/master/src/brave/brave_48x48.png)](/) |
+| [![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](/) | [![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](/) | [![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png)](/) | [![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png)](/) | [![Brave](https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png)](/) |
 | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
 | 88+ (Jan 2021)                                                                                | 109+ (Jan 2023)                                                                                  | 74+ (Chromium-based)                                                                       | 88+ (Chromium-based)                                                                    | Latest (Chromium-based)                                                                    |
 
@@ -69,7 +69,7 @@ This starter uses **Manifest V3** for all browsers.
 Create a new directory and run
 
 ```
-curl -fsSL https://github.com/abhijithvijayan/web-extension-starter/archive/react-typescript.tar.gz | tar -xz --strip-components=1
+curl -fsSL https://github.com/abhijithvijayan/web-extension-starter/archive/react-typescript-vite.tar.gz | tar -xz --strip-components=1
 ```
 
 ## 🚀 Quick Start
@@ -142,7 +142,7 @@ The manifest uses vendor prefixes to generate browser-specific configurations:
 }
 ```
 
-See [vite-plugin-wext-manifest](https://github.com/nicholascostadev/vite-plugin-wext-manifest) for more details.
+See [vite-plugin-wext-manifest](https://github.com/abhijithvijayan/vite-plugin-wext-manifest) for more details.
 
 ## Scripts
 
