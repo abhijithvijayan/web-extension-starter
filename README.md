@@ -21,147 +21,139 @@
 </p>
 <hr />
 
-❤️ it? ⭐️ it on [GitHub](https://github.com/abhijithvijayan/web-extension-starter) or [Tweet](https://twitter.com/intent/tweet?text=Check%20out%20web-extension-starter%21%20by%20%40_abhijithv%0A%0AWeb%20Extension%20starter%20to%20build%20%22Write%20Once%20Run%20on%20Any%20Browser%22%20extension.%20https%3A%2F%2Fgithub.com%2Fabhijithvijayan%2Fweb-extension-starter%0A%0A%23javascript%20%23react%20%23typescript%20%23sass%20%23webextension%20%23chrome%20%23firefox%20%23opera) about it.
-
-🧙‍♂️ **React + TypeScript** = [This](https://github.com/abhijithvijayan/web-extension-starter/tree/react-typescript) branch
-
-😨 **React + JavaScript** = Checkout [react-javascript](https://github.com/abhijithvijayan/web-extension-starter/tree/react-javascript) branch
-
-👶🏼 **HTML + JavaScript** = Checkout [master](https://github.com/abhijithvijayan/web-extension-starter/tree/master) branch
+Like it? Star it on [GitHub](https://github.com/abhijithvijayan/web-extension-starter) or [Tweet](https://twitter.com/intent/tweet?text=Check%20out%20web-extension-starter%21%20by%20%40_abhijithv%0A%0AWeb%20Extension%20starter%20to%20build%20%22Write%20Once%20Run%20on%20Any%20Browser%22%20extension.%20https%3A%2F%2Fgithub.com%2Fabhijithvijayan%2Fweb-extension-starter%0A%0A%23javascript%20%23react%20%23typescript%20%23sass%20%23webextension%20%23chrome%20%23firefox%20%23opera) about it.
 
 ## Features
 
 - Cross Browser Support (Web-Extensions API)
 - Browser Tailored Manifest generation
+- Vite for fast builds and HMR
 - Automatic build on code changes
 - Auto packs browser specific build files
-- SASS styling
+- SASS/SCSS styling with CSS Modules
 - TypeScript by default
 - ES6 modules support
-- React UI Library by default
-- Smart reload
+- React 19 with automatic JSX runtime
+- ESLint 9 flat config with Prettier
+
+## Tech Stack
+
+- **Bundler**: [Vite](https://vitejs.dev/) 7
+- **UI**: [React](https://react.dev/) 19
+- **Language**: [TypeScript](https://www.typescriptlang.org/) 5.9
+- **Styling**: SCSS with CSS Modules
+- **Linting**: ESLint 9 (flat config) + Prettier
+- **Manifest**: [vite-plugin-wext-manifest](https://github.com/nicholascostadev/vite-plugin-wext-manifest)
 
 ## Browser Support
 
-| [![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](/) | [![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](/) | [![Opera](https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png)](/) | [![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png)](/) | [![Yandex](https://raw.github.com/alrra/browser-logos/master/src/yandex/yandex_48x48.png)](/) | [![Brave](https://raw.github.com/alrra/browser-logos/master/src/brave/brave_48x48.png)](/) | [![vivaldi](https://raw.github.com/alrra/browser-logos/master/src/vivaldi/vivaldi_48x48.png)](/) |
-| --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
-| 49 & later ✔                                                                                  | 52 & later ✔                                                                                     | 36 & later ✔                                                                               | 79 & later ✔                                                                            | Latest ✔                                                                                      | Latest ✔                                                                                   | Latest ✔                                                                                         |
+| [![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](/) | [![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](/) | [![Opera](https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png)](/) | [![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png)](/) | [![Brave](https://raw.github.com/alrra/browser-logos/master/src/brave/brave_48x48.png)](/) |
+| --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| 88 & later                                                                                    | 109 & later                                                                                      | 36 & later                                                                                 | 88 & later                                                                              | Latest                                                                                     |
 
-## Used by extensions in production that has over 100,000+ users.
+## Quick Start
 
-- [daily.dev](https://daily.dev) in [daily.dev extension](https://r.daily.dev/get)
-- [Jiffy Reader](https://chrome.google.com/webstore/detail/jiffy-reader/lljedihjnnjjefafchaljkhbpfhfkdic) in [ansh/jiffyreader.com](https://github.com/ansh/jiffyreader.com)
-- [kutt-extension](https://chrome.google.com/webstore/detail/kutt/pklakpjfiegjacoppcodencchehlfnpd) in [abhijithvijayan/kutt-extension](https://github.com/abhijithvijayan/kutt-extension)
-- [doubanIMDb](https://chrome.google.com/webstore/detail/doubanimdb/nfibbjnhkbjlgjaojglmmibdjicidini) in [lisongx/doubanIMDb](https://github.com/lisongx/doubanIMDb)
-- [Mooc Assistant](https://chrome.google.com/webstore/detail/mooc-assistant/oebggekgendmoeedkkdkdcdbmfbfeldc) in [unbyte/mooc-assistant](https://github.com/unbyte/mooc-assistant)
-- ArtiPub in [crawlab-team/artipub](https://github.com/crawlab-team/artipub/tree/master/extensions)
+Ensure you have [Node.js](https://nodejs.org) 20 or later installed.
 
-and many more...
+```bash
+# Clone the repository
+git clone https://github.com/abhijithvijayan/web-extension-starter.git
+cd web-extension-starter
 
-## Use this template
+# Install dependencies
+npm install
 
-Create a new directory and run
+# Start development server
+npm run dev:chrome    # For Chrome
+npm run dev:firefox   # For Firefox
+
+# Build for production
+npm run build:chrome  # Build Chrome extension
+npm run build:firefox # Build Firefox addon
+npm run build         # Build for all browsers
+```
+
+## Project Structure
 
 ```
-curl -fsSL https://github.com/abhijithvijayan/web-extension-starter/archive/react-typescript.tar.gz | tar -xz --strip-components=1
+source/
+├── Background/        # Service worker (Chrome MV3) / Background script (Firefox)
+├── ContentScript/     # Content scripts (injected into web pages)
+├── Popup/             # Extension popup UI
+├── Options/           # Options page UI
+├── components/        # Shared React components
+├── styles/            # Global styles and variables
+├── types/             # TypeScript type definitions
+├── utils/             # Utility functions
+├── public/            # Static assets (icons, etc.)
+└── manifest.json      # Extension manifest template
 ```
 
-## 🚀 Quick Start
+## Development
 
-Ensure you have
+### Loading the Extension
 
-- [Node.js](https://nodejs.org) 20 or later installed
+#### Chrome
 
-Then run the following:
+1. Navigate to `chrome://extensions`
+2. Enable "Developer mode"
+3. Click "Load unpacked"
+4. Select `extension/chrome` directory
 
-- `npm install` to install dependencies.
-- `npm run dev:chrome` to start the development server for chrome extension
-- `npm run dev:firefox` to start the development server for firefox addon
-- `npm run build:chrome` to build chrome extension
-- `npm run build:firefox` to build firefox addon
-- `npm run build` builds and packs extensions all at once to extension/ directory
+#### Firefox
 
-### Development
+1. Navigate to `about:debugging`
+2. Click "This Firefox"
+3. Click "Load Temporary Add-on"
+4. Select `extension/firefox/manifest.json`
 
-- `npm install` to install dependencies.
-- To watch file changes in development
+### Content Scripts
 
-  - Chrome
-    - `npm run dev:chrome`
-  - Firefox
-    - `npm run dev:firefox`
+Content scripts are automatically bundled as IIFE (Immediately Invoked Function Expression) to ensure compatibility with the browser's content script execution environment, which doesn't support ES modules.
 
-- **Load extension in browser**
+### Browser-Specific Manifest
 
-- ### Chrome
+The manifest uses vendor prefixes to generate browser-specific configurations:
 
-  - Go to the browser address bar and type `chrome://extensions`
-  - Check the `Developer Mode` button to enable it.
-  - Click on the `Load Unpacked Extension…` button.
-  - Select your browsers folder in `extension/`.
-
-- ### Firefox
-
-  - Load the Add-on via `about:debugging` as temporary Add-on.
-  - Choose the `manifest.json` file in the extracted directory
-
-### Production
-
-- `npm run build` builds the extension for all the browsers to `extension/BROWSER` directory respectively.
-
-Note: By default the `manifest.json` is set with version `0.0.0`. The webpack loader will update the version in the build with that of the `package.json` version. In order to release a new version, update version in `package.json` and run script.
-
-If you don't want to use `package.json` version, you can disable the option [here](https://github.com/abhijithvijayan/web-extension-starter/blob/e10158c4a49948dea9fdca06592876d9ca04e028/webpack.config.js#L79).
-
-### Generating browser specific manifest.json
-
-Update `source/manifest.json` file with browser vendor prefixed manifest keys
-
-```js
+```json
 {
-  "__chrome__name": "SuperChrome",
-  "__firefox__name": "SuperFox",
-  "__edge__name": "SuperEdge",
-  "__opera__name": "SuperOpera"
+  "__chrome__name": "My Chrome Extension",
+  "__firefox__name": "My Firefox Addon",
+  "__chrome|firefox__description": "Works on both!"
 }
 ```
 
-if the vendor is `chrome` this compiles to:
+See [vite-plugin-wext-manifest](https://github.com/nicholascostadev/vite-plugin-wext-manifest) for more details.
 
-```js
-{
-  "name": "SuperChrome",
-}
-```
+## Scripts
 
----
+| Script              | Description                              |
+| ------------------- | ---------------------------------------- |
+| `npm run dev:chrome`  | Start dev server for Chrome            |
+| `npm run dev:firefox` | Start dev server for Firefox           |
+| `npm run build:chrome`| Build production Chrome extension      |
+| `npm run build:firefox`| Build production Firefox addon        |
+| `npm run build`       | Build for all browsers                 |
+| `npm run lint`        | Run ESLint                             |
+| `npm run lint:fix`    | Run ESLint with auto-fix               |
 
-Add keys to multiple vendors by separating them with | in the prefix
+## Linting & TypeScript Config
 
-```
-{
-  __chrome|opera__name: "SuperBlink"
-}
-```
+- Shared ESLint & Prettier Configuration - [`@abhijithvijayan/eslint-config`](https://www.npmjs.com/package/@abhijithvijayan/eslint-config)
+- Shared TypeScript Configuration - [`@abhijithvijayan/tsconfig`](https://www.npmjs.com/package/@abhijithvijayan/tsconfig)
 
-if the vendor is `chrome` or `opera`, this compiles to:
+## Used in Production
 
-```
-{
-  "name": "SuperBlink"
-}
-```
+Extensions built with this starter that have 100,000+ users:
 
-See the original [README](https://github.com/abhijithvijayan/wext-manifest-loader) of `wext-manifest-loader` package for more details
+- [daily.dev](https://daily.dev) - [daily.dev extension](https://r.daily.dev/get)
+- [Jiffy Reader](https://chrome.google.com/webstore/detail/jiffy-reader/lljedihjnnjjefafchaljkhbpfhfkdic)
+- [kutt-extension](https://chrome.google.com/webstore/detail/kutt/pklakpjfiegjacoppcodencchehlfnpd)
+- [doubanIMDb](https://chrome.google.com/webstore/detail/doubanimdb/nfibbjnhkbjlgjaojglmmibdjicidini)
 
 ## Bugs
 
 Please file an issue [here](https://github.com/abhijithvijayan/web-extension-starter/issues/new) for bugs, missing documentation, or unexpected behavior.
-
-### Linting & TypeScript Config
-
-- Shared Eslint & Prettier Configuration - [`@abhijithvijayan/eslint-config`](https://www.npmjs.com/package/@abhijithvijayan/eslint-config)
-- Shared TypeScript Configuration - [`@abhijithvijayan/tsconfig`](https://www.npmjs.com/package/@abhijithvijayan/tsconfig)
 
 ## License
 
