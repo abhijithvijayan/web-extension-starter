@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import {defineConfig, build} from 'vite';
 import path from 'node:path';
 import react from '@vitejs/plugin-react';
 import process from 'node:process';
@@ -6,6 +6,46 @@ import zipPack from 'vite-plugin-zip-pack';
 import checker from 'vite-plugin-checker';
 import clean from 'vite-plugin-clean';
 import WextManifest from 'vite-plugin-wext-manifest';
+
+import type {Plugin} from 'vite';
+
+// Custom plugin to build content scripts as IIFE (self-contained, no ES module imports)
+function buildContentScripts(options: {
+  scripts: {name: string; entry: string}[];
+  outDir: string;
+  isDevelopment: boolean;
+}): Plugin {
+  return {
+    name: 'build-content-scripts',
+    async writeBundle() {
+      for (const script of options.scripts) {
+        await build({
+          configFile: false,
+          build: {
+            write: true,
+            outDir: options.outDir,
+            emptyOutDir: false,
+            sourcemap: options.isDevelopment ? 'inline' : false,
+            minify: !options.isDevelopment,
+            rollupOptions: {
+              input: script.entry,
+              output: {
+                entryFileNames: `assets/js/${script.name}.bundle.js`,
+                format: 'iife',
+                inlineDynamicImports: true,
+              },
+            },
+            lib: {
+              entry: script.entry,
+              formats: ['iife'],
+              name: script.name,
+            },
+          },
+        });
+      }
+    },
+  };
+}
 
 export default defineConfig(({ mode }) => {
 	const isDevelopment = mode !== 'production';
@@ -69,6 +109,19 @@ export default defineConfig(({ mode }) => {
 				usePackageJSONVersion: true,
 			}),
 
+			// Build content scripts as IIFE (no ES module imports)
+			// Content scripts can't use ES modules in manifest-injected scripts
+			buildContentScripts({
+				scripts: [
+					{
+						name: 'contentScript',
+						entry: path.resolve(sourcePath, 'ContentScript/index.ts'),
+					},
+				],
+				outDir: getOutDir(),
+				isDevelopment,
+			}),
+
 			!isDevelopment &&
 				zipPack({
 					inDir: getOutDir(),
@@ -93,29 +146,19 @@ export default defineConfig(({ mode }) => {
 					// Vite will find the <script> tag inside and bundle it.
 					popup: path.resolve(sourcePath, 'Popup/popup.html'),
 					options: path.resolve(sourcePath, 'Options/options.html'),
-					// For script-only parts, use the TS file directly.
+					// Background script (service worker in MV3)
 					background: path.resolve(sourcePath, 'Background/index.ts'),
-					contentScript: path.resolve(sourcePath, 'ContentScript/index.ts'),
+					// Note: contentScript is built separately as IIFE via buildContentScripts plugin
 				},
 
 				output: {
-					// For main entry scripts (background, contentScript, etc.)
 					entryFileNames: 'assets/js/[name].bundle.js',
-
-					// For other assets like CSS
 					assetFileNames: (assetInfo) => {
-						if (
-							!!assetInfo.name &&
-							/\.(css|s[ac]ss|less)$/.test(assetInfo.name)
-						) {
+						if (assetInfo.names?.[0]?.match(/\.(css|s[ac]ss|less)$/)) {
 							return 'assets/css/[name]-[hash].css';
 						}
-
-						// For other assets like fonts or images
 						return 'assets/[name]-[hash].[ext]';
 					},
-
-					// For code-split chunks (if any)
 					chunkFileNames: 'assets/js/[name]-[hash].chunk.js',
 				},
 			},
