@@ -21,7 +21,7 @@
 </p>
 <hr />
 
-Like it? Star it on [GitHub](https://github.com/abhijithvijayan/web-extension-starter) or [Tweet](https://twitter.com/intent/tweet?text=Check%20out%20web-extension-starter%21%20by%20%40_abhijithv%0A%0AWeb%20Extension%20starter%20to%20build%20%22Write%20Once%20Run%20on%20Any%20Browser%22%20extension.%20https%3A%2F%2Fgithub.com%2Fabhijithvijayan%2Fweb-extension-starter%0A%0A%23javascript%20%23react%20%23typescript%20%23sass%20%23webextension%20%23chrome%20%23firefox%20%23opera) about it.
+❤️ it? ⭐️ it on [GitHub](https://github.com/abhijithvijayan/web-extension-starter) or [Tweet](https://twitter.com/intent/tweet?text=Check%20out%20web-extension-starter%21%20by%20%40_abhijithv%0A%0AWeb%20Extension%20starter%20to%20build%20%22Write%20Once%20Run%20on%20Any%20Browser%22%20extension.%20https%3A%2F%2Fgithub.com%2Fabhijithvijayan%2Fweb-extension-starter%0A%0A%23javascript%20%23react%20%23typescript%20%23sass%20%23webextension%20%23chrome%20%23firefox%20%23opera) about it.
 
 ## Features
 
@@ -51,15 +51,28 @@ Like it? Star it on [GitHub](https://github.com/abhijithvijayan/web-extension-st
 | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
 | 88 & later                                                                                    | 109 & later                                                                                      | 36 & later                                                                                 | 88 & later                                                                              | Latest                                                                                     |
 
-## Quick Start
+## Used by extensions in production that has over 100,000+ users.
+
+- [daily.dev](https://daily.dev) - [daily.dev extension](https://r.daily.dev/get)
+- [Jiffy Reader](https://chrome.google.com/webstore/detail/jiffy-reader/lljedihjnnjjefafchaljkhbpfhfkdic)
+- [kutt-extension](https://chrome.google.com/webstore/detail/kutt/pklakpjfiegjacoppcodencchehlfnpd)
+- [doubanIMDb](https://chrome.google.com/webstore/detail/doubanimdb/nfibbjnhkbjlgjaojglmmibdjicidini)
+
+## Use this template
+
+Create a new directory and run
+
+```
+curl -fsSL https://github.com/abhijithvijayan/web-extension-starter/archive/react-typescript.tar.gz | tar -xz --strip-components=1
+```
+
+## 🚀 Quick Start
 
 Ensure you have [Node.js](https://nodejs.org) 20 or later installed.
 
-```bash
-# Clone the repository
-git clone https://github.com/abhijithvijayan/web-extension-starter.git
-cd web-extension-starter
+Then run the following:
 
+```bash
 # Install dependencies
 npm install
 
@@ -141,15 +154,6 @@ See [vite-plugin-wext-manifest](https://github.com/nicholascostadev/vite-plugin-
 
 - Shared ESLint & Prettier Configuration - [`@abhijithvijayan/eslint-config`](https://www.npmjs.com/package/@abhijithvijayan/eslint-config)
 - Shared TypeScript Configuration - [`@abhijithvijayan/tsconfig`](https://www.npmjs.com/package/@abhijithvijayan/tsconfig)
-
-## Used in Production
-
-Extensions built with this starter that have 100,000+ users:
-
-- [daily.dev](https://daily.dev) - [daily.dev extension](https://r.daily.dev/get)
-- [Jiffy Reader](https://chrome.google.com/webstore/detail/jiffy-reader/lljedihjnnjjefafchaljkhbpfhfkdic)
-- [kutt-extension](https://chrome.google.com/webstore/detail/kutt/pklakpjfiegjacoppcodencchehlfnpd)
-- [doubanIMDb](https://chrome.google.com/webstore/detail/doubanimdb/nfibbjnhkbjlgjaojglmmibdjicidini)
 
 ## Bugs
 
