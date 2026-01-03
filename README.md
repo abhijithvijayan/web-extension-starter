@@ -69,7 +69,7 @@ This starter uses **Manifest V3** for all browsers.
 Create a new directory and run
 
 ```
-curl -fsSL https://github.com/abhijithvijayan/web-extension-starter/archive/react-typescript.tar.gz | tar -xz --strip-components=1
+curl -fsSL https://github.com/abhijithvijayan/web-extension-starter/archive/react-typescript-vite.tar.gz | tar -xz --strip-components=1
 ```
 
 ## 🚀 Quick Start
