@@ -1,8 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import Options from './Options';
-import './styles.scss';
 
 const container = document.getElementById('options-root');
 

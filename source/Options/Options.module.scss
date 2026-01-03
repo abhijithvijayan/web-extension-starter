@@ -1,0 +1,124 @@
+@use "../styles/fonts";
+@use "../styles/reset";
+@use "../styles/variables";
+
+:global(body) {
+  color: variables.$black;
+  background: linear-gradient(180deg, variables.$greyWhite 0%, #eef2f7 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+  font-family: variables.$fontFamily;
+}
+
+.options {
+  width: 100%;
+  max-width: 480px;
+}
+
+.header {
+  margin-bottom: 32px;
+  text-align: center;
+
+  h1 {
+    font-size: 26px;
+    font-weight: variables.$bold;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, variables.$primary 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  p {
+    color: variables.$skyBlue;
+    font-size: 14px;
+    font-weight: variables.$medium;
+  }
+}
+
+.form {
+  background: variables.$cardBg;
+  border-radius: variables.$radiusLg;
+  padding: 28px;
+  box-shadow: variables.$shadowLg;
+  border: 1px solid variables.$border;
+}
+
+.section {
+  margin-bottom: 24px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid variables.$border;
+}
+
+.status {
+  font-size: 14px;
+  color: variables.$success;
+  font-weight: variables.$semibold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: variables.$success;
+    border-radius: 50%;
+    animation: pulse 1s ease-in-out;
+  }
+}
+
+.footer {
+  margin-top: 24px;
+  text-align: center;
+}
+
+.githubLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: variables.$medium;
+  color: variables.$skyBlue;
+  background: variables.$cardBg;
+  border: 1px solid variables.$border;
+  border-radius: variables.$radiusMd;
+  transition: all 0.2s ease;
+  text-decoration: none;
+
+  &:hover {
+    color: variables.$black;
+    border-color: #cbd5e1;
+    box-shadow: variables.$shadowSm;
+    transform: translateY(-1px);
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

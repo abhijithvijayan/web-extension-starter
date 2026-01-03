@@ -1,0 +1,44 @@
+@use "../styles/fonts";
+@use "../styles/reset";
+@use "../styles/variables";
+
+:global(body) {
+  color: variables.$black;
+  background: linear-gradient(180deg, variables.$greyWhite 0%, #eef2f7 100%);
+  width: 100%;
+  font-family: variables.$fontFamily;
+}
+
+.popup {
+  width: 380px;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid variables.$border;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: variables.$bold;
+  letter-spacing: -0.3px;
+  color: variables.$black;
+  background: linear-gradient(135deg, variables.$primary 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.greeting {
+  font-size: 13px;
+  color: variables.$skyBlue;
+  margin-top: 6px;
+  font-weight: variables.$medium;
+}
+
+.tabCard {
+  margin-bottom: 14px;
+}

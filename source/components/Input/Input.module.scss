@@ -1,0 +1,41 @@
+@use "../../styles/variables";
+
+.wrapper {
+  margin-bottom: 24px;
+}
+
+.label {
+  display: block;
+  font-size: 13px;
+  font-weight: variables.$semibold;
+  margin-bottom: 10px;
+  color: variables.$black;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 15px;
+  background-color: variables.$white;
+  color: variables.$black;
+  border: 2px solid variables.$border;
+  border-radius: variables.$radiusMd;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+
+  &:hover {
+    border-color: #cbd5e1;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: variables.$primary;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+  }
+
+  &::placeholder {
+    color: #94a3b8;
+  }
+}

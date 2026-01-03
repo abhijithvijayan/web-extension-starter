@@ -1,0 +1,10 @@
+@use "../../../styles/variables";
+
+.footer {
+  display: flex;
+  gap: 10px;
+}
+
+.button {
+  flex: 1;
+}

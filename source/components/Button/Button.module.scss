@@ -1,0 +1,74 @@
+@use "../../styles/variables";
+
+.button {
+  padding: 11px 16px;
+  font-size: 13px;
+  font-weight: variables.$semibold;
+  border: none;
+  border-radius: variables.$radiusMd;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: variables.$shadowMd;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.primary {
+  background: linear-gradient(135deg, variables.$primary 0%, variables.$primaryDark 100%);
+  color: variables.$white;
+}
+
+.secondary {
+  background: variables.$greyWhite;
+  color: variables.$black;
+  border: 1px solid variables.$border;
+
+  &:hover {
+    background: #eef2f7;
+  }
+}
+
+.settings {
+  background: linear-gradient(135deg, variables.$primary 0%, #8b5cf6 100%);
+  color: variables.$white;
+}
+
+.github {
+  background: linear-gradient(135deg, #24292e 0%, #1a1a1a 100%);
+  color: variables.$white;
+}
+
+.support {
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  color: variables.$white;
+}
+
+.small {
+  padding: 12px 10px;
+  font-size: 12px;
+  gap: 6px;
+}
+
+.medium {
+  padding: 11px 16px;
+  font-size: 13px;
+}
+
+.large {
+  padding: 14px 28px;
+  font-size: 14px;
+}
