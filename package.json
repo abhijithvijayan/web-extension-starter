@@ -26,7 +26,7 @@
     "lint:fix": "eslint . --ext .ts,.tsx --fix"
   },
   "dependencies": {
-    "@babel/runtime": "^7.23.9",
+    "@babel/runtime": "^7.28.4",
     "advanced-css-reset": "^1.2.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
