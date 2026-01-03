@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {useEffect, useState} from 'react';
 import browser, {Tabs} from 'webextension-polyfill';
+import {getStorage} from '../utils/storage';
 
 function openWebPage(url: string): Promise<Tabs.Tab> {
   return browser.tabs.create({url});
@@ -14,6 +15,7 @@ interface TabInfo {
 
 const Popup: React.FC = () => {
   const [tabInfo, setTabInfo] = useState<TabInfo | null>(null);
+  const [username, setUsername] = useState<string>('');
 
   useEffect(() => {
     browser.tabs.query({active: true, currentWindow: true}).then((tabs) => {
@@ -25,6 +27,10 @@ const Popup: React.FC = () => {
           favIconUrl: tab.favIconUrl,
         });
       }
+    });
+
+    getStorage(['username']).then(({username: storedUsername}) => {
+      setUsername(storedUsername);
     });
   }, []);
 
@@ -44,6 +50,7 @@ const Popup: React.FC = () => {
     <section className="popup">
       <header className="popup__header">
         <h1 className="popup__title">Web Extension Starter</h1>
+        {username && <p className="popup__greeting">Hello, {username}!</p>}
       </header>
 
       {tabInfo && (

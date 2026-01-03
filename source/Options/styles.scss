@@ -4,38 +4,45 @@
 
 body {
   color: variables.$black;
-  background-color: variables.$greyWhite;
+  background: linear-gradient(180deg, variables.$greyWhite 0%, #eef2f7 100%);
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  padding: 40px 20px;
+  padding: 50px 20px;
+  font-family: variables.$fontFamily;
 }
 
 .options {
   width: 100%;
-  max-width: 500px;
+  max-width: 480px;
 
   &__header {
-    margin-bottom: 30px;
+    margin-bottom: 32px;
     text-align: center;
 
     h1 {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 8px;
+      font-size: 26px;
+      font-weight: variables.$bold;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, variables.$primary 0%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     p {
       color: variables.$skyBlue;
       font-size: 14px;
+      font-weight: variables.$medium;
     }
   }
 
   &__card {
-    background: white;
-    border-radius: 12px;
-    padding: 24px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background: variables.$cardBg;
+    border-radius: variables.$radiusLg;
+    padding: 28px;
+    box-shadow: variables.$shadowLg;
+    border: 1px solid variables.$border;
   }
 
   &__section {
@@ -48,110 +55,165 @@ body {
 
   &__label {
     display: block;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: variables.$semibold;
+    margin-bottom: 10px;
     color: variables.$black;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 
   &__input {
     width: 100%;
-    padding: 12px 14px;
-    font-size: 14px;
-    background-color: white;
+    padding: 14px 16px;
+    font-size: 15px;
+    background-color: variables.$white;
     color: variables.$black;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    border: 2px solid variables.$border;
+    border-radius: variables.$radiusMd;
+    transition: all 0.2s ease;
     box-sizing: border-box;
+
+    &:hover {
+      border-color: #cbd5e1;
+    }
 
     &:focus {
       outline: none;
-      border-color: #4a90d9;
-      box-shadow: 0 0 0 3px rgba(74, 144, 217, 0.15);
+      border-color: variables.$primary;
+      box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
     }
 
     &::placeholder {
-      color: #a0a0a0;
+      color: #94a3b8;
     }
   }
 
   &__checkbox-wrapper {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
-    padding: 14px;
-    background: #f8f9fa;
-    border-radius: 8px;
+    gap: 14px;
+    padding: 16px;
+    background: variables.$greyWhite;
+    border-radius: variables.$radiusMd;
     cursor: pointer;
-    transition: background 0.2s;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
 
     &:hover {
-      background: #f0f1f3;
+      background: #eef2f7;
+      border-color: variables.$border;
     }
   }
 
   &__checkbox {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     margin-top: 2px;
     cursor: pointer;
-    accent-color: #4a90d9;
+    accent-color: variables.$primary;
   }
 
   &__checkbox-text {
     font-size: 14px;
     line-height: 1.5;
-    color: #444;
+    color: variables.$skyBlue;
+    font-weight: variables.$medium;
   }
 
   &__actions {
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-top: 24px;
+    margin-top: 28px;
     padding-top: 24px;
-    border-top: 1px solid #eee;
+    border-top: 1px solid variables.$border;
   }
 
   &__button {
-    padding: 12px 24px;
+    padding: 14px 28px;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: variables.$semibold;
     border: none;
-    border-radius: 8px;
+    border-radius: variables.$radiusMd;
     cursor: pointer;
-    transition: opacity 0.2s, transform 0.1s;
+    transition: all 0.2s ease;
 
     &:hover {
-      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: variables.$shadowMd;
     }
 
     &:active {
-      transform: scale(0.98);
+      transform: translateY(0);
     }
 
     &--primary {
-      background: #4a90d9;
-      color: white;
+      background: linear-gradient(135deg, variables.$primary 0%, variables.$primaryDark 100%);
+      color: variables.$white;
     }
   }
 
   &__status {
     font-size: 14px;
-    color: #2d8a2d;
-    font-weight: 500;
+    color: variables.$success;
+    font-weight: variables.$semibold;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
 
     &::before {
       content: "";
       display: inline-block;
       width: 8px;
       height: 8px;
-      background: #2d8a2d;
+      background: variables.$success;
       border-radius: 50%;
+      animation: pulse 1s ease-in-out;
     }
+  }
+
+  &__footer {
+    margin-top: 24px;
+    text-align: center;
+  }
+
+  &__github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: variables.$medium;
+    color: variables.$skyBlue;
+    background: variables.$cardBg;
+    border: 1px solid variables.$border;
+    border-radius: variables.$radiusMd;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: variables.$black;
+      border-color: #cbd5e1;
+      box-shadow: variables.$shadowSm;
+      transform: translateY(-1px);
+    }
+
+    svg {
+      flex-shrink: 0;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }

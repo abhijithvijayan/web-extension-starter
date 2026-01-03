@@ -1,10 +1,17 @@
 // colors
-$black: #0d0d0d;
-$greyWhite: #f3f3f3;
-$skyBlue: #8892b0;
+$black: #1a1a2e;
+$greyWhite: #f8f9fc;
+$skyBlue: #64748b;
+$primary: #6366f1;
+$primaryDark: #4f46e5;
+$success: #10b981;
+$danger: #ef4444;
+$white: #ffffff;
+$border: #e2e8f0;
+$cardBg: #ffffff;
 
 // fonts
-$nunito: "Nunito", sans-serif;
+$fontFamily: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
 // font weights
 $thin: 100;
@@ -16,6 +23,16 @@ $semibold: 600;
 $bold: 700;
 $exbold: 800;
 $exblack: 900;
+
+// border radius
+$radiusSm: 6px;
+$radiusMd: 10px;
+$radiusLg: 14px;
+
+// shadows
+$shadowSm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadowMd: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+$shadowLg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 
 // other variables
 .d-none {

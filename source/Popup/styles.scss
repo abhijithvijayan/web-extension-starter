@@ -4,8 +4,9 @@
 
 body {
   color: variables.$black;
-  background-color: variables.$greyWhite;
+  background: linear-gradient(180deg, variables.$greyWhite 0%, #eef2f7 100%);
   width: 100%;
+  font-family: variables.$fontFamily;
 }
 
 .popup {
@@ -14,68 +15,81 @@ body {
 
   &__header {
     text-align: center;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     padding-bottom: 16px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid variables.$border;
   }
 
   &__title {
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
+    font-size: 18px;
+    font-weight: variables.$bold;
+    letter-spacing: -0.3px;
     color: variables.$black;
+    background: linear-gradient(135deg, variables.$primary 0%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  &__greeting {
+    font-size: 13px;
+    color: variables.$skyBlue;
+    margin-top: 6px;
+    font-weight: variables.$medium;
   }
 
   &__card {
-    background: white;
-    border-radius: 10px;
-    padding: 16px;
-    margin-bottom: 12px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    background: variables.$cardBg;
+    border-radius: variables.$radiusLg;
+    padding: 18px;
+    margin-bottom: 14px;
+    box-shadow: variables.$shadowMd;
+    border: 1px solid variables.$border;
   }
 
   &__card-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
 
   &__card-title {
-    font-size: 12px;
-    font-weight: 600;
+    font-size: 11px;
+    font-weight: variables.$bold;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
     color: variables.$skyBlue;
   }
 
   &__tab-content {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 14px;
+    gap: 14px;
+    margin-bottom: 16px;
   }
 
   &__favicon {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
+    width: 44px;
+    height: 44px;
+    border-radius: variables.$radiusMd;
     flex-shrink: 0;
-    background: #f0f0f0;
+    background: variables.$greyWhite;
     object-fit: cover;
+    border: 1px solid variables.$border;
   }
 
   &__favicon-placeholder {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    width: 44px;
+    height: 44px;
+    border-radius: variables.$radiusMd;
+    background: linear-gradient(135deg, variables.$primary 0%, #8b5cf6 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: variables.$white;
     font-size: 18px;
-    font-weight: 700;
+    font-weight: variables.$bold;
     flex-shrink: 0;
   }
 
@@ -86,12 +100,13 @@ body {
 
   &__tab-title {
     font-size: 14px;
-    font-weight: 600;
+    font-weight: variables.$semibold;
     color: variables.$black;
     margin-bottom: 4px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    line-height: 1.3;
   }
 
   &__tab-url {
@@ -104,71 +119,80 @@ body {
 
   &__btn {
     width: 100%;
-    padding: 10px 14px;
+    padding: 11px 16px;
     font-size: 13px;
-    font-weight: 500;
+    font-weight: variables.$semibold;
     border: none;
-    border-radius: 8px;
+    border-radius: variables.$radiusMd;
     cursor: pointer;
-    transition: all 0.15s ease;
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
 
     &:hover {
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      box-shadow: variables.$shadowMd;
     }
 
     &:active {
       transform: translateY(0);
     }
 
+    &--primary {
+      background: linear-gradient(135deg, variables.$primary 0%, variables.$primaryDark 100%);
+      color: variables.$white;
+    }
+
     &--secondary {
-      background: #f0f1f3;
-      color: #444;
+      background: variables.$greyWhite;
+      color: variables.$black;
+      border: 1px solid variables.$border;
 
       &:hover {
-        background: #e4e5e7;
+        background: #eef2f7;
       }
     }
   }
 
   &__footer {
     display: flex;
-    gap: 8px;
-    margin-top: 4px;
+    gap: 10px;
   }
 
   &__footer-btn {
     flex: 1;
-    padding: 12px;
-    font-size: 13px;
-    font-weight: 600;
+    padding: 12px 10px;
+    font-size: 12px;
+    font-weight: variables.$semibold;
     border: none;
-    border-radius: 8px;
+    border-radius: variables.$radiusMd;
     cursor: pointer;
-    transition: all 0.15s ease;
+    transition: all 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 6px;
 
     &:hover {
-      transform: translateY(-1px);
+      transform: translateY(-2px);
+      box-shadow: variables.$shadowMd;
     }
 
     &--settings {
-      background: #4a90d9;
-      color: white;
+      background: linear-gradient(135deg, variables.$primary 0%, #8b5cf6 100%);
+      color: variables.$white;
     }
 
     &--github {
-      background: #24292e;
-      color: white;
+      background: linear-gradient(135deg, #24292e 0%, #1a1a1a 100%);
+      color: variables.$white;
     }
 
     &--support {
-      background: #ff813f;
-      color: white;
+      background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+      color: variables.$white;
     }
   }
 }
