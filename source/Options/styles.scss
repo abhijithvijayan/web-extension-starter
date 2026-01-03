@@ -5,4 +5,153 @@
 body {
   color: variables.$black;
   background-color: variables.$greyWhite;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.options {
+  width: 100%;
+  max-width: 500px;
+
+  &__header {
+    margin-bottom: 30px;
+    text-align: center;
+
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    p {
+      color: variables.$skyBlue;
+      font-size: 14px;
+    }
+  }
+
+  &__card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  &__section {
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: variables.$black;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 14px;
+    background-color: white;
+    color: variables.$black;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: none;
+      border-color: #4a90d9;
+      box-shadow: 0 0 0 3px rgba(74, 144, 217, 0.15);
+    }
+
+    &::placeholder {
+      color: #a0a0a0;
+    }
+  }
+
+  &__checkbox-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #f0f1f3;
+    }
+  }
+
+  &__checkbox {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: #4a90d9;
+  }
+
+  &__checkbox-text {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #444;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #eee;
+  }
+
+  &__button {
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+
+    &:hover {
+      opacity: 0.9;
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+
+    &--primary {
+      background: #4a90d9;
+      color: white;
+    }
+  }
+
+  &__status {
+    font-size: 14px;
+    color: #2d8a2d;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: #2d8a2d;
+      border-radius: 50%;
+    }
+  }
 }

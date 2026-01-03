@@ -1,10 +1,13 @@
 @import '~/advanced-css-reset/dist/reset.min.css';
 
-// Add your custom reset rules here
+// Override dark mode color scheme that causes dark inputs
+:root {
+  color-scheme: light;
+}
 
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
+// Reset removes borders, restore for form elements
+input,
+textarea,
+select {
+  border: 1px solid #ccc;
 }

@@ -8,50 +8,167 @@ body {
   width: 100%;
 }
 
-::placeholder {
-  color: blue;
-}
+.popup {
+  width: 380px;
+  padding: 20px;
 
-#popup {
-  min-width: 350px;
-  padding: 30px 20px;
-
-  h2 {
-    font-size: 25px;
+  &__header {
     text-align: center;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #eee;
   }
 
-  #options__button {
-    width: 50%;
-    background: green;
-    color: white;
-    font-weight: 500;
-    border-radius: 15px;
-    padding: 5px 10px;
-    justify-content: center;
-    margin: 20px auto;
-    cursor: pointer;
-    opacity: 0.8;
+  &__title {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: variables.$black;
+  }
+
+  &__card {
+    background: white;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+
+  &__card-header {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
   }
 
-  .links__holder {
-    ul {
-      display: flex;
-      margin-top: 1em;
-      justify-content: space-around;
+  &__card-title {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: variables.$skyBlue;
+  }
 
-      li {
-        button {
-          border-radius: 25px;
-          font-size: 20px;
-          font-weight: 600;
-          padding: 10px 17px;
-          background-color: rgba(0, 0, 255, 0.7);
-          color: white;
-          cursor: pointer;
-        }
+  &__tab-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  &__favicon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    background: #f0f0f0;
+    object-fit: cover;
+  }
+
+  &__favicon-placeholder {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  &__tab-details {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__tab-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: variables.$black;
+    margin-bottom: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__tab-url {
+    font-size: 12px;
+    color: variables.$skyBlue;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__btn {
+    width: 100%;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &--secondary {
+      background: #f0f1f3;
+      color: #444;
+
+      &:hover {
+        background: #e4e5e7;
       }
+    }
+  }
+
+  &__footer {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+  }
+
+  &__footer-btn {
+    flex: 1;
+    padding: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      transform: translateY(-1px);
+    }
+
+    &--settings {
+      background: #4a90d9;
+      color: white;
+    }
+
+    &--github {
+      background: #24292e;
+      color: white;
+    }
+
+    &--support {
+      background: #ff813f;
+      color: white;
     }
   }
 }
