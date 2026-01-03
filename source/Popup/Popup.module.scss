@@ -42,3 +42,69 @@
 .tabCard {
   margin-bottom: 14px;
 }
+
+.statsCard {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.statsTitle {
+  font-size: 13px;
+  font-weight: variables.$semibold;
+  color: variables.$skyBlue;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  background: variables.$greyWhite;
+  border-radius: 8px;
+}
+
+.statValue {
+  font-size: 20px;
+  font-weight: variables.$bold;
+  color: variables.$primary;
+}
+
+.statLabel {
+  font-size: 11px;
+  color: variables.$skyBlue;
+  margin-top: 4px;
+}
+
+.visitCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.visitLabel {
+  font-size: 13px;
+  color: variables.$skyBlue;
+}
+
+.visitCount {
+  font-size: 18px;
+  font-weight: variables.$bold;
+  color: variables.$primary;
+}
