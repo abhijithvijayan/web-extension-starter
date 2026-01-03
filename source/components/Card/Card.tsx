@@ -1,27 +1,22 @@
-import * as React from "react";
-import type { FC, ReactNode } from "react";
-import styles from "./Card.module.scss";
+import type {FC, ReactNode} from 'react';
+import styles from './Card.module.scss';
 
 interface CardProps {
   title?: string;
-  size?: "default" | "large";
+  size?: 'default' | 'large';
   children: ReactNode;
   className?: string;
 }
 
 export const Card: FC<CardProps> = ({
   title,
-  size = "default",
+  size = 'default',
   children,
   className,
 }) => {
-  const classNames = [
-    styles.card,
-    size === "large" && styles.large,
-    className,
-  ]
+  const classNames = [styles.card, size === 'large' && styles.large, className]
     .filter(Boolean)
-    .join(" ");
+    .join(' ');
 
   return (
     <div className={classNames}>

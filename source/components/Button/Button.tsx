@@ -1,9 +1,13 @@
-import * as React from "react";
-import type { FC, ReactNode, ButtonHTMLAttributes } from "react";
-import styles from "./Button.module.scss";
+import type {FC, ReactNode, ButtonHTMLAttributes} from 'react';
+import styles from './Button.module.scss';
 
-type ButtonVariant = "primary" | "secondary" | "settings" | "github" | "support";
-type ButtonSize = "small" | "medium" | "large";
+type ButtonVariant =
+  | 'primary'
+  | 'secondary'
+  | 'settings'
+  | 'github'
+  | 'support';
+type ButtonSize = 'small' | 'medium' | 'large';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
@@ -13,8 +17,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button: FC<ButtonProps> = ({
-  variant = "primary",
-  size = "medium",
+  variant = 'primary',
+  size = 'medium',
   fullWidth = false,
   children,
   className,
@@ -28,7 +32,7 @@ export const Button: FC<ButtonProps> = ({
     className,
   ]
     .filter(Boolean)
-    .join(" ");
+    .join(' ');
 
   return (
     <button type="button" className={classNames} {...props}>

@@ -21,6 +21,9 @@ browser.runtime.onMessage.addListener(
 // Log when content script loads (if logging is enabled)
 getStorage(['enableLogging']).then(({enableLogging}) => {
   if (enableLogging) {
-    console.log('[Web Extension Starter] Content script loaded on:', window.location.href);
+    console.log(
+      '[Web Extension Starter] Content script loaded on:',
+      window.location.href
+    );
   }
 });

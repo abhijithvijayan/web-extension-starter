@@ -15,7 +15,10 @@
 		/* Bundler-specific settings */
 		"moduleResolution": "bundler",
 		"isolatedModules": true,
-		"declaration": false
+		"declaration": false,
+
+		/* React JSX transform */
+		"jsx": "react-jsx"
 	},
 	"include": [
 		"source"

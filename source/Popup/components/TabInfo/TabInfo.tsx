@@ -1,8 +1,7 @@
-import * as React from "react";
-import type { FC } from "react";
-import { Card } from "../../../components/Card/Card";
-import { Button } from "../../../components/Button/Button";
-import styles from "./TabInfo.module.scss";
+import type {FC} from 'react';
+import {Card} from '../../../components/Card/Card';
+import {Button} from '../../../components/Button/Button';
+import styles from './TabInfo.module.scss';
 
 interface TabInfoProps {
   title: string;
@@ -17,9 +16,7 @@ export const TabInfo: FC<TabInfoProps> = ({
   favIconUrl,
   onReload,
 }) => {
-  const getInitial = (text: string): string => {
-    return text.charAt(0).toUpperCase();
-  };
+  const getInitial = (text: string): string => text.charAt(0).toUpperCase();
 
   return (
     <Card title="Current Tab">

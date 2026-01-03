@@ -1,11 +1,10 @@
-import * as React from "react";
-import type { FC } from "react";
+import type {FC} from 'react';
 
 interface IconProps {
   size?: number;
 }
 
-export const SettingsIcon: FC<IconProps> = ({ size = 14 }) => (
+export const SettingsIcon: FC<IconProps> = ({size = 14}) => (
   <svg
     width={size}
     height={size}

@@ -1,14 +1,13 @@
-import * as React from "react";
-import { useEffect, useState } from "react";
-import type { FC } from "react";
-import browser, { Tabs } from "webextension-polyfill";
-import { getStorage } from "../utils/storage";
-import { TabInfo } from "./components/TabInfo/TabInfo";
-import { FooterActions } from "./components/FooterActions/FooterActions";
-import styles from "./Popup.module.scss";
+import {useEffect, useState} from 'react';
+import type {FC} from 'react';
+import browser, {Tabs} from 'webextension-polyfill';
+import {getStorage} from '../utils/storage';
+import {TabInfo} from './components/TabInfo/TabInfo';
+import {FooterActions} from './components/FooterActions/FooterActions';
+import styles from './Popup.module.scss';
 
 function openWebPage(url: string): Promise<Tabs.Tab> {
-  return browser.tabs.create({ url });
+  return browser.tabs.create({url});
 }
 
 interface TabData {
@@ -19,21 +18,21 @@ interface TabData {
 
 const Popup: FC = () => {
   const [tabInfo, setTabInfo] = useState<TabData | null>(null);
-  const [username, setUsername] = useState<string>("");
+  const [username, setUsername] = useState<string>('');
 
   useEffect(() => {
-    browser.tabs.query({ active: true, currentWindow: true }).then((tabs) => {
+    browser.tabs.query({active: true, currentWindow: true}).then((tabs) => {
       const tab = tabs[0];
       if (tab) {
         setTabInfo({
-          title: tab.title || "Unknown",
-          url: tab.url || "Unknown",
+          title: tab.title || 'Unknown',
+          url: tab.url || 'Unknown',
           favIconUrl: tab.favIconUrl,
         });
       }
     });
 
-    getStorage(["username"]).then(({ username: storedUsername }) => {
+    getStorage(['username']).then(({username: storedUsername}) => {
       setUsername(storedUsername);
     });
   }, []);
@@ -69,13 +68,15 @@ const Popup: FC = () => {
 
       <FooterActions
         onSettings={(): Promise<Tabs.Tab> =>
-          openWebPage("/Options/options.html")
+          openWebPage('/Options/options.html')
         }
         onGitHub={(): Promise<Tabs.Tab> =>
-          openWebPage("https://github.com/abhijithvijayan/web-extension-starter")
+          openWebPage(
+            'https://github.com/abhijithvijayan/web-extension-starter'
+          )
         }
         onSupport={(): Promise<Tabs.Tab> =>
-          openWebPage("https://www.buymeacoffee.com/abhijithvijayan")
+          openWebPage('https://www.buymeacoffee.com/abhijithvijayan')
         }
       />
     </section>
