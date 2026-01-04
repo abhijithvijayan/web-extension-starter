@@ -39,9 +39,7 @@ browser.runtime.onInstalled.addListener((): void => {
 
 // Listen for messages from popup or content scripts
 browser.runtime.onMessage.addListener(
-  (
-    message: unknown
-  ): Promise<VisitCountResponseMessage> | undefined => {
+  (message: unknown): Promise<VisitCountResponseMessage> | undefined => {
     const msg = message as ExtensionMessage;
 
     // Content script notifies us when a page is visited
@@ -61,10 +59,12 @@ browser.runtime.onMessage.addListener(
 
     // Popup requests the visit count
     if (msg.type === 'GET_VISIT_COUNT') {
-      return getStorage(['visitCount']).then(({visitCount}) => ({
-        type: 'VISIT_COUNT_RESPONSE',
-        count: visitCount,
-      }));
+      return getStorage(['visitCount']).then(({visitCount}) => {
+        return {
+          type: 'VISIT_COUNT_RESPONSE',
+          count: visitCount,
+        };
+      });
     }
 
     return undefined;
