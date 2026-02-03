@@ -1,7 +1,7 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Sample WebExtension",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "icons": {
     "16": "assets/icons/favicon-16.png",
     "32": "assets/icons/favicon-32.png",
@@ -13,44 +13,59 @@
   "short_name": "Sample Name",
   "permissions": [
     "activeTab",
-    "storage",
+    "storage"
+  ],
+  "optional_permissions": [],
+  "host_permissions": [],
+  "optional_host_permissions": [
     "http://*/*",
     "https://*/*"
   ],
-  "content_security_policy": "script-src 'self'; object-src 'self'",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  },
   "author": "abhijithvijayan",
-  "minimum_chrome_version": "49",
-  "browser_action": {
-    "default_popup": "popup.html",
+  "minimum_chrome_version": "88",
+  "action": {
+    "default_popup": "Popup/popup.html",
     "default_icon": {
       "16": "assets/icons/favicon-16.png",
       "32": "assets/icons/favicon-32.png",
       "48": "assets/icons/favicon-48.png",
       "128": "assets/icons/favicon-128.png"
     },
-    "default_title": "tiny title",
-    "chrome_style": false
+    "default_title": "tiny title"
   },
-  "options_page": "options.html",
+  "options_page": "Options/options.html",
   "options_ui": {
-    "page": "options.html",
-    "open_in_tab": true,
-    "chrome_style": false
+    "page": "Options/options.html",
+    "open_in_tab": true
   },
   "background": {
-    "scripts": [
-      "js/background.bundle.js"
-    ],
-    "persistent": false
+    "service_worker": "assets/js/background.bundle.js",
+    "type": "module"
   },
   "content_scripts": [
     {
+      "run_at": "document_start",
       "matches": [
         "http://*/*",
         "https://*/*"
       ],
+      "css": [],
       "js": [
-        "js/contentScript.bundle.js"
+        "assets/js/contentScript.bundle.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/*"
+      ],
+      "matches": [
+        "http://*/*",
+        "https://*/*"
       ]
     }
   ]

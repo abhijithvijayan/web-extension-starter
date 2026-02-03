@@ -1,0 +1,1 @@
+import{b as r,g as n,s as i}from"./storage-DjahtsqZ.chunk.js";r.runtime.onInstalled.addListener(()=>{});r.runtime.onMessage.addListener(s=>{const e=s;if(e.type==="PAGE_VISITED"){n(["visitCount"]).then(({visitCount:t})=>{i({visitCount:t+1})});return}if(e.type==="GET_VISIT_COUNT")return n(["visitCount"]).then(({visitCount:t})=>({type:"VISIT_COUNT_RESPONSE",count:t}))});
