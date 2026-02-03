@@ -51,9 +51,9 @@ This starter uses **Manifest V3** for all browsers.
 
 | [![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](/) | [![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](/) | [![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png)](/) | [![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png)](/) | [![Brave](https://raw.githubusercontent.com/alrra/browser-logos/master/src/brave/brave_48x48.png)](/) |
 | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| 88+ (Jan 2021)                                                                                | 109+ (Jan 2023)                                                                                  | 74+ (Chromium-based)                                                                       | 88+ (Chromium-based)                                                                    | Latest (Chromium-based)                                                                    |
+| 88+ (Jan 2021)                                                                                | 112+ (Apr 2023)                                                                                  | 74+ (Chromium-based)                                                                       | 88+ (Chromium-based)                                                                    | Latest (Chromium-based)                                                                    |
 
-> **Note**: Firefox 109+ is required for Manifest V3 support with ES modules in background scripts.
+> **Note**: Firefox 112+ is required for Manifest V3 support with ES modules in background scripts.
 >
 > Need to support older Firefox versions? See [Firefox MV2 Guide](docs/FIREFOX_MV2.md) for using Manifest V2 with Firefox.
 
