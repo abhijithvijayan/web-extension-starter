@@ -14,6 +14,11 @@
     "node": ">=20"
   },
   "type": "module",
+  "overrides": {
+    "@isaacs/brace-expansion": "^5.0.1",
+    "minimatch": "^10.0.3",
+    "ajv": "^8.17.0"
+  },
   "scripts": {
     "dev:chrome": "cross-env TARGET_BROWSER=chrome vite build --config vite.config.ts --mode development --watch",
     "dev:firefox": "cross-env TARGET_BROWSER=firefox vite build --config vite.config.ts --mode development --watch",
