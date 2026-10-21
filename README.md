@@ -1,7 +1,7 @@
 <h1 align="center">🚀 web-extension-starter</h1>
 <p align="center">Web Extension starter to build "Write Once Run on Any Browser" extension</p>
 <div align="center">
-  <a href="https://github.com/abhijithvijayan/web-extension-starter/blob/master/LICENSE">
+  <a href="./LICENCE">
     <img src="https://img.shields.io/github/license/abhijithvijayan/web-extension-starter.svg" alt="LICENSE" />
   </a>
   <a href="https://twitter.com/intent/tweet?text=Check%20out%20web-extension-starter%21%20by%20%40_abhijithv%0A%0AWeb%20Extension%20starter%20to%20build%20%22Write%20Once%20Run%20on%20Any%20Browser%22%20extension.%20https%3A%2F%2Fgithub.com%2Fabhijithvijayan%2Fweb-extension-starter%0A%0A%23javascript%20%23react%20%23typescript%20%23sass%20%23webextension%20%23chrome%20%23firefox%20%23opera">
@@ -69,7 +69,7 @@ This starter uses **Manifest V3** for all browsers.
 Create a new directory and run
 
 ```
-curl -fsSL https://github.com/abhijithvijayan/web-extension-starter/archive/react-typescript-vite.tar.gz | tar -xz --strip-components=1
+curl -fsSL https://github.com/abhijithvijayan/web-extension-starter/archive/refs/heads/main.tar.gz | tar -xz --strip-components=1
 ```
 
 ## 🚀 Quick Start
